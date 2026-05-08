@@ -763,9 +763,34 @@ body.nav-open .menu-btn span:last-child {
   display: inline;
 }
 
+.band h2 .purpose-stack {
+  display: grid;
+  width: max-content;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.band h2 .purpose-line {
+  display: block;
+  max-width: 100%;
+  white-space: nowrap;
+}
+
+.band h2 .purpose-line--lead {
+  justify-self: start;
+}
+
+.band h2 .purpose-line--main {
+  justify-self: center;
+}
+
+.band h2 .purpose-line--closing {
+  justify-self: end;
+}
+
 .band h2 i {
   display: inline-block;
-  margin: 0 0.12em;
+  margin: 0 0.12em 0 0;
   color: transparent;
   font-style: italic;
   -webkit-text-stroke: 1.5px #0a0a0a;
@@ -1210,9 +1235,13 @@ footer {
     min-height: 250px;
   }
 
+  .band h2 {
+    font-size: 2rem;
+  }
+
   .band h2 i {
-    display: block;
-    margin: 0.08em 0;
+    display: inline-block;
+    margin: 0 0.08em 0 0;
   }
 
   .svc-item .nm svg {
@@ -1236,6 +1265,18 @@ footer {
 
   .cta-final {
     padding: 120px 20px;
+  }
+}
+
+@media (max-width: 440px) {
+  .band h2 {
+    font-size: 1.65rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .band h2 {
+    font-size: 1.45rem;
   }
 }
 
