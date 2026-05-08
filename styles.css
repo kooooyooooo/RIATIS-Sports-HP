@@ -48,6 +48,26 @@ svg {
   display: block;
 }
 
+.mobile-br {
+  display: none;
+}
+
+.hero-jp,
+.value p,
+.band h2,
+.svc-item .ds {
+  line-break: strict;
+  text-wrap: pretty;
+  word-break: auto-phrase;
+}
+
+.scroll-theater .act h2,
+.stitle,
+.cta-final .big {
+  text-wrap: balance;
+  overflow-wrap: break-word;
+}
+
 .grain {
   position: fixed;
   inset: 0;
@@ -237,7 +257,7 @@ body.nav-open .menu-btn span:last-child {
 
 .hero h1 {
   font-family: "Anton", sans-serif;
-  font-size: 13.75rem;
+  font-size: clamp(2.75rem, 13.2vw, 13.75rem);
   line-height: 0.86;
   letter-spacing: 0;
   text-transform: uppercase;
@@ -250,6 +270,7 @@ body.nav-open .menu-btn span:last-child {
 
 .hero h1 .line > span {
   display: inline-block;
+  max-width: 100%;
   transform: translateY(110%);
   animation: hero-up 1s cubic-bezier(0.77, 0, 0.175, 1) forwards;
 }
@@ -314,12 +335,12 @@ body.nav-open .menu-btn span:last-child {
 }
 
 .hero-jp {
-  max-width: 580px;
+  max-width: 680px;
   padding-left: 22px;
   border-left: 3px solid var(--red);
   color: rgba(255, 255, 255, 0.9);
   font-family: "Shippori Mincho", serif;
-  font-size: 1.1875rem;
+  font-size: clamp(1rem, 1.2vw, 1.1875rem);
   font-weight: 700;
   line-height: 1.95;
 }
@@ -442,7 +463,7 @@ body.nav-open .menu-btn span:last-child {
 .scroll-theater .act h2 {
   padding: 0 40px;
   font-family: "Anton", sans-serif;
-  font-size: 13.75rem;
+  font-size: clamp(2.5rem, 10.8vw, 13.75rem);
   line-height: 0.9;
   letter-spacing: 0;
   text-align: center;
@@ -550,7 +571,7 @@ body.nav-open .menu-btn span:last-child {
 .stitle {
   margin-bottom: 50px;
   font-family: "Anton", sans-serif;
-  font-size: 7.5rem;
+  font-size: clamp(2.4rem, 8vw, 7.5rem);
   line-height: 0.9;
   letter-spacing: 0;
   text-transform: uppercase;
@@ -694,8 +715,10 @@ body.nav-open .menu-btn span:last-child {
 }
 
 .band h2 {
+  max-width: 1200px;
+  margin: 0 auto;
   font-family: "Shippori Mincho", serif;
-  font-size: 4.25rem;
+  font-size: clamp(1.75rem, 4.6vw, 4.25rem);
   font-weight: 900;
   line-height: 1.35;
   letter-spacing: 0;
@@ -765,10 +788,13 @@ body.nav-open .menu-btn span:last-child {
   display: flex;
   gap: 14px;
   align-items: center;
+  min-width: 0;
   font-family: "Anton", "Noto Sans JP", sans-serif;
-  font-size: 2.875rem;
+  font-size: clamp(1.75rem, 3.2vw, 2.875rem);
   line-height: 1;
   letter-spacing: 0;
+  overflow-wrap: break-word;
+  text-wrap: balance;
   text-transform: uppercase;
 }
 
@@ -778,6 +804,11 @@ body.nav-open .menu-btn span:last-child {
   height: 38px;
   stroke: var(--red);
   transition: stroke 0.4s ease;
+}
+
+.svc-item .nm-text {
+  min-width: 0;
+  overflow-wrap: break-word;
 }
 
 .svc-item:hover .nm,
@@ -791,6 +822,7 @@ body.nav-open .menu-btn span:last-child {
 }
 
 .svc-item .ds {
+  min-width: 0;
   color: rgba(255, 255, 255, 0.72);
   font-size: 14px;
   line-height: 1.75;
@@ -848,7 +880,7 @@ body.nav-open .menu-btn span:last-child {
 
 .cta-final .big {
   font-family: "Anton", sans-serif;
-  font-size: 13.75rem;
+  font-size: clamp(2.75rem, 13.2vw, 13.75rem);
   line-height: 0.9;
   letter-spacing: 0;
   text-transform: uppercase;
@@ -912,7 +944,7 @@ footer {
 .ft-big {
   margin-bottom: 40px;
   font-family: "Anton", sans-serif;
-  font-size: 15rem;
+  font-size: clamp(4rem, 15vw, 15rem);
   line-height: 0.9;
   letter-spacing: 0;
   text-transform: uppercase;
@@ -934,26 +966,6 @@ footer {
   font-size: 11px;
   letter-spacing: 0;
   text-transform: uppercase;
-}
-
-@media (max-width: 1280px) {
-  .hero h1,
-  .scroll-theater .act h2,
-  .cta-final .big {
-    font-size: 10rem;
-  }
-
-  .stitle {
-    font-size: 6rem;
-  }
-
-  .band h2 {
-    font-size: 3.5rem;
-  }
-
-  .ft-big {
-    font-size: 12rem;
-  }
 }
 
 .reveal {
@@ -1029,22 +1041,12 @@ footer {
     gap: 8px;
   }
 
-  .hero h1,
-  .scroll-theater .act h2,
-  .cta-final .big {
-    font-size: 5.5rem;
+  .mobile-br {
+    display: initial;
   }
 
   .hero-jp {
-    font-size: 1rem;
-  }
-
-  .stitle {
-    font-size: 4.5rem;
-  }
-
-  .band h2 {
-    font-size: 2.625rem;
+    max-width: 34rem;
   }
 
   .hero-sub {
@@ -1091,7 +1093,8 @@ footer {
   .svc-item .nm {
     grid-column: 1;
     grid-row: 2;
-    font-size: 30px;
+    align-items: flex-start;
+    line-height: 1.08;
   }
 
   .svc-item .ds {
@@ -1115,7 +1118,7 @@ footer {
   }
 
   .ft-big {
-    font-size: 7rem;
+    overflow-wrap: anywhere;
   }
 }
 
@@ -1130,20 +1133,6 @@ footer {
 
   .scroll-theater .act h2 {
     padding: 0 18px;
-  }
-
-  .hero h1,
-  .scroll-theater .act h2,
-  .cta-final .big {
-    font-size: 4rem;
-  }
-
-  .stitle {
-    font-size: 3.375rem;
-  }
-
-  .band h2 {
-    font-size: 1.9rem;
   }
 
   .nav-links {
