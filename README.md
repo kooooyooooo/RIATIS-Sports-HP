@@ -2,6 +2,11 @@
 
 株式会社RIATIS Sports向けの静的コーポレートサイトです。`01-pulse.html` の方向性をベースに、黒・赤・白のPulse Drivenデザインと生成背景画像を組み込んでいます。
 
+## ドキュメント
+
+- [docs/DESIGN.md](docs/DESIGN.md): ブリーフv3(PULSE DRIVEN CORPORATE)に基づく再設計の設計書(IA・セクション設計・コンポーネント・トークン・フェーズ計画・要確認事項)
+- [docs/REFACTORING.md](docs/REFACTORING.md): 実装前に行った挙動非変更リファクタリングの記録
+
 
 ## ローカル確認
 
