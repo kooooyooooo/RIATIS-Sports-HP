@@ -17,6 +17,7 @@
     14. Reveal animation
     15. Responsive
     16. Reduced motion
+    17. Opening overlay (マスクライズ)
    ========================================================================== */
 
 /* 1. Design tokens
@@ -87,7 +88,8 @@ svg {
   display: none;
 }
 
-.hero-jp,
+.hero-lead,
+.hero-statement,
 .value p,
 .band h2,
 .svc-item .ds,
@@ -214,6 +216,31 @@ svg {
 .nav-links a:hover::after,
 .nav-links a:focus-visible::after {
   width: 100%;
+}
+
+.nav-cta {
+  padding: 8px 16px;
+  border: 1px solid var(--fg);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.nav-cta::before {
+  content: none;
+}
+
+.nav-cta::after {
+  content: none;
+}
+
+.nav-cta:hover,
+.nav-cta:focus-visible {
+  background: var(--red);
+  color: #fff;
+  border-color: var(--red);
 }
 
 .menu-btn {
@@ -351,21 +378,8 @@ body.nav-open .menu-btn span:last-child {
 }
 
 .hero h1 .red {
-  position: relative;
   color: var(--red);
-  font-style: italic;
-}
-
-.hero h1 .red::after {
-  content: "";
-  position: absolute;
-  left: -4px;
-  right: -4px;
-  bottom: 8%;
-  height: 10px;
-  background: var(--red);
-  opacity: 0.3;
-  mix-blend-mode: multiply;
+  font-style: normal;
 }
 
 @keyframes hero-up {
@@ -396,15 +410,102 @@ body.nav-open .menu-btn span:last-child {
   }
 }
 
-.hero-jp {
+.hero-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
   max-width: 680px;
   padding-left: 22px;
   border-left: 3px solid var(--red);
-  color: rgba(255, 255, 255, 0.9);
+}
+
+.hero-lead {
+  color: rgba(255, 255, 255, 0.95);
   font-family: var(--font-serif);
-  font-size: clamp(1rem, 1.2vw, 1.1875rem);
-  font-weight: 700;
-  line-height: 1.95;
+  font-size: clamp(1.125rem, 1.8vw, 1.6875rem);
+  font-weight: 900;
+  line-height: 1.5;
+  letter-spacing: 0;
+}
+
+.hero-statement {
+  max-width: 36rem;
+  color: rgba(255, 255, 255, 0.78);
+  font-family: var(--font-sans);
+  font-size: clamp(0.875rem, 1vw, 1rem);
+  font-weight: 500;
+  line-height: 1.85;
+}
+
+.hero-subtag {
+  margin-top: 6px;
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: clamp(10px, 0.9vw, 12px);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.hero-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.hero-btn {
+  position: relative;
+  display: inline-flex;
+  gap: 12px;
+  align-items: center;
+  padding: 16px 26px;
+  overflow: hidden;
+  font-family: var(--font-display);
+  font-size: 14px;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  transition: color 0.4s ease, background 0.4s ease, border-color 0.3s ease;
+}
+
+.hero-btn > * {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-btn--primary {
+  background: var(--red);
+  color: #fff;
+}
+
+.hero-btn--primary::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: var(--fg);
+  transform: translateY(100%);
+  transition: transform 0.4s var(--ease-power);
+}
+
+.hero-btn--primary:hover::before,
+.hero-btn--primary:focus-visible::before {
+  transform: translateY(0);
+}
+
+.hero-btn--primary:hover,
+.hero-btn--primary:focus-visible {
+  color: #0a0a0a;
+}
+
+.hero-btn--ghost {
+  color: var(--fg);
+  border: 1px solid rgba(255, 255, 255, 0.45);
+}
+
+.hero-btn--ghost:hover,
+.hero-btn--ghost:focus-visible {
+  border-color: var(--fg);
+  background: rgba(255, 255, 255, 0.08);
 }
 
 .bpm {
@@ -492,6 +593,31 @@ body.nav-open .menu-btn span:last-child {
 }
 
 /* 7. StatementBlock (scroll-theater) */
+
+.why {
+  position: relative;
+  background: #000;
+}
+
+.why-intro {
+  position: relative;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: clamp(96px, 12vw, 160px) clamp(20px, 4vw, 56px) clamp(48px, 6vw, 80px);
+}
+
+.why-statement {
+  max-width: 44rem;
+  margin-top: 22px;
+  color: rgba(255, 255, 255, 0.88);
+  font-family: var(--font-serif);
+  font-size: clamp(1.125rem, 1.6vw, 1.5rem);
+  font-weight: 700;
+  line-height: 1.85;
+  line-break: strict;
+  text-wrap: pretty;
+  word-break: auto-phrase;
+}
 
 .scroll-theater {
   position: relative;
@@ -742,7 +868,7 @@ body.nav-open .menu-btn span:last-child {
 }
 
 .value h3 {
-  margin-bottom: 14px;
+  margin-bottom: 6px;
   color: var(--fg);
   font-family: var(--font-display);
   font-size: clamp(2.5rem, 4.5vw, 3.75rem);
@@ -767,6 +893,33 @@ body.nav-open .menu-btn span:last-child {
 .value:hover p,
 .value:focus-within p {
   color: rgba(255, 255, 255, 0.95);
+}
+
+.value .value-sub {
+  margin: 0 0 14px;
+  color: var(--red);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.value:hover .value-sub,
+.value:focus-within .value-sub {
+  color: #fff;
+}
+
+.value .value-jp {
+  color: rgba(255, 255, 255, 0.92);
+  font-family: var(--font-serif);
+  font-size: clamp(1rem, 1.2vw, 1.125rem);
+  font-weight: 700;
+  line-height: 1.7;
+}
+
+.value:hover .value-jp,
+.value:focus-within .value-jp {
+  color: #fff;
 }
 
 .value .iconbox {
@@ -925,8 +1078,8 @@ body.nav-open .menu-btn span:last-child {
 
 .svc-item .nm {
   display: flex;
-  gap: 14px;
-  align-items: flex-start;
+  flex-direction: column;
+  gap: 12px;
   min-width: 0;
   font-family: var(--font-display-jp);
   font-size: clamp(1.875rem, 3.3vw, 3.25rem);
@@ -935,6 +1088,32 @@ body.nav-open .menu-btn span:last-child {
   overflow-wrap: break-word;
   text-wrap: balance;
   text-transform: uppercase;
+}
+
+.svc-item .nm-category {
+  align-self: flex-start;
+  padding: 4px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.32);
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: color 0.4s ease, border-color 0.4s ease;
+}
+
+.svc-item:hover .nm-category,
+.svc-item:focus-within .nm-category {
+  color: #0a0a0a;
+  border-color: rgba(0, 0, 0, 0.55);
+}
+
+.svc-item .nm-headline {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  min-width: 0;
 }
 
 .svc-item .nm svg {
@@ -962,21 +1141,68 @@ body.nav-open .menu-btn span:last-child {
 }
 
 .svc-item .ds {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
   min-width: 0;
   max-width: 50rem;
+}
+
+.svc-tagline {
+  color: rgba(255, 255, 255, 0.92);
+  font-family: var(--font-serif);
+  font-size: clamp(1.0625rem, 1.4vw, 1.375rem);
+  font-weight: 700;
+  line-height: 1.55;
+  transition: color 0.4s ease;
+}
+
+.svc-desc {
   color: rgba(255, 255, 255, 0.72);
   font-size: clamp(0.9rem, 1.05vw, 1rem);
   line-height: 1.9;
   transition: color 0.4s ease;
 }
 
-.svc-item:hover .ds,
-.svc-item:focus-within .ds {
+.svc-item:hover .svc-tagline,
+.svc-item:hover .svc-desc,
+.svc-item:focus-within .svc-tagline,
+.svc-item:focus-within .svc-desc {
   color: rgba(0, 0, 0, 0.88);
 }
 
+.svc-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 4px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.svc-tags li {
+  padding: 4px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: rgba(255, 255, 255, 0.65);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  transition: color 0.4s ease, border-color 0.4s ease;
+}
+
+.svc-item:hover .svc-tags li,
+.svc-item:focus-within .svc-tags li {
+  color: rgba(0, 0, 0, 0.88);
+  border-color: rgba(0, 0, 0, 0.35);
+}
+
 .svc-item .ar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
   padding-top: 1px;
+  color: var(--fg);
   font-family: var(--font-display);
   font-size: 36px;
   text-align: right;
@@ -987,6 +1213,11 @@ body.nav-open .menu-btn span:last-child {
 .svc-item:focus-within .ar {
   color: #0a0a0a;
   transform: translateX(10px);
+}
+
+.svc-item .ar:focus-visible {
+  outline: 2px solid var(--red);
+  outline-offset: 4px;
 }
 
 /* 12. PartnerCTA (cta-final) */
@@ -1212,8 +1443,38 @@ footer {
     display: initial;
   }
 
-  .hero-jp {
+  .hero-copy {
     max-width: 34rem;
+  }
+
+  .hero-statement {
+    max-width: 32rem;
+  }
+
+  .hero-cta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    width: 100%;
+  }
+
+  .hero-btn {
+    width: 100%;
+    justify-content: space-between;
+    padding: 14px 22px;
+  }
+
+  .nav-cta {
+    padding: 0;
+    border: none;
+    font-size: inherit;
+  }
+
+  .nav-cta:hover,
+  .nav-cta:focus-visible {
+    background: transparent;
+    color: inherit;
+    border-color: transparent;
   }
 
   .section-head {
@@ -1371,4 +1632,295 @@ footer {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
+}
+
+/* 17. Opening overlay (オープニング演出「マスクライズ」)
+   docs/DESIGN.md §7.1.1 参照。
+   タイムラインの数値・色・イージングは .opening の CSS 変数に集約し、
+   後から調整しやすくしている。 */
+
+/* セルフホストの源石ゴシック H サブセット (RIATIS / SPORTS INC. 11字のみ)。
+   元: ButTaiwan/genseki-font v2.100 (SIL OFL 1.1)。
+   詳細は assets/fonts/genseki/ATTRIBUTION.md と OFL.txt を参照。
+   internal alias は "RIATIS Display" — Reserved Font Name 衝突を避ける運用。 */
+@font-face {
+  font-family: "RIATIS Display";
+  src: url("assets/fonts/genseki/RIATIS-Display-H.subset.woff2") format("woff2");
+  font-weight: 900;
+  font-style: normal;
+  font-display: block;
+  unicode-range: U+0020, U+002E, U+0041, U+0043, U+0049, U+004E, U+004F, U+0050, U+0052, U+0053, U+0054;
+}
+
+.opening {
+  --t-rise-dur: 620ms;
+  --t-rise-stagger: 65ms;
+  --t-mask-open: 1100ms;
+  --t-sub-start: 840ms;
+  --t-sub-dur: 450ms;
+  --t-line-start: 960ms;
+  --t-line-dur: 520ms;
+  --t-red-start: 2400ms;
+  --t-red-dur: 560ms;
+  --t-line-fade-start: 2400ms;
+  --t-color-swap: 2700ms;
+  --t-tagline-start: 3000ms;
+  --t-tagline-dur: 550ms;
+  --t-shadow-start: 3200ms;
+  --t-shadow-dur: 340ms;
+  --t-overlay-fade-start: 4340ms;
+  --t-overlay-fade-dur: 600ms;
+
+  --opening-ease-rise: cubic-bezier(0.16, 1, 0.3, 1);
+  --opening-ease-expand: cubic-bezier(0.77, 0, 0.18, 1);
+
+  --opening-red: #d71200;
+  --opening-logo-pre: #c8c8c8;
+  --opening-sub-pre: #8a8a8a;
+  --opening-logo-post: #ffffff;
+  --opening-sub-post: rgba(255, 255, 255, 0.85);
+
+  /* 立体押し出しシャドウ用 (script.js で getComputedStyle 経由で参照) */
+  --shadow-depth: 7;
+  --shadow-dx: 1;
+  --shadow-dy: -1;
+  --shadow-color: #7f0b00;
+
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  animation: opening-overlay-fade var(--t-overlay-fade-dur) ease forwards;
+  animation-delay: var(--t-overlay-fade-start);
+}
+
+.opening__red {
+  position: absolute;
+  inset: 0;
+  background: var(--opening-red);
+  transform: scaleY(0);
+  transform-origin: 50% 62%;
+  visibility: hidden;
+  animation: opening-red-expand var(--t-red-dur) var(--opening-ease-expand) forwards;
+  animation-delay: var(--t-red-start);
+  z-index: 1;
+}
+
+.opening__stack {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 0 24px;
+  text-align: center;
+}
+
+.opening__logo {
+  font-family: "RIATIS Display", "Inter", sans-serif;
+  font-weight: 900;
+  font-size: clamp(40px, 9vw, 96px);
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+  line-height: 1;
+  color: var(--opening-logo-pre);
+  animation: opening-logo-color-swap 1ms step-end forwards;
+  animation-delay: var(--t-color-swap);
+}
+
+.opening__mask {
+  display: inline-block;
+  overflow: hidden;
+  line-height: 1;
+  vertical-align: bottom;
+  /* 立ち上がり完了後はマスクを開放し、押し出しシャドウが
+     箱外（右斜め上）へ伸びても切られないようにする */
+  animation: opening-mask-open 1ms step-end forwards;
+  animation-delay: var(--t-mask-open);
+}
+
+@keyframes opening-mask-open {
+  to { overflow: visible; }
+}
+
+.opening__char {
+  display: inline-block;
+  transform: translateY(110%);
+  animation: opening-char-rise var(--t-rise-dur) var(--opening-ease-rise) both;
+  will-change: transform;
+}
+
+.opening__mask:nth-child(1) .opening__char { animation-delay: 0ms; }
+.opening__mask:nth-child(2) .opening__char { animation-delay: calc(var(--t-rise-stagger) * 1); }
+.opening__mask:nth-child(3) .opening__char { animation-delay: calc(var(--t-rise-stagger) * 2); }
+.opening__mask:nth-child(4) .opening__char { animation-delay: calc(var(--t-rise-stagger) * 3); }
+.opening__mask:nth-child(5) .opening__char { animation-delay: calc(var(--t-rise-stagger) * 4); }
+.opening__mask:nth-child(6) .opening__char { animation-delay: calc(var(--t-rise-stagger) * 5); }
+
+.opening__sub {
+  margin: 4px 0 0;
+  padding-left: 0.42em;
+  font-family: "RIATIS Display", "Inter", sans-serif;
+  font-size: clamp(13px, 2.4vw, 18px);
+  font-weight: 900;
+  letter-spacing: 0.42em;
+  color: var(--opening-sub-pre);
+  opacity: 0;
+  animation:
+    opening-fade-in var(--t-sub-dur) ease-out both,
+    opening-sub-color-swap 1ms step-end forwards;
+  animation-delay: var(--t-sub-start), var(--t-color-swap);
+}
+
+.opening__line {
+  display: block;
+  width: 140px;
+  height: 2px;
+  margin-top: 4px;
+  background: var(--opening-red);
+  transform: scaleX(0);
+  transform-origin: center;
+  animation:
+    opening-line-grow var(--t-line-dur) var(--opening-ease-expand) both,
+    opening-line-fade 1ms step-end forwards;
+  animation-delay: var(--t-line-start), var(--t-line-fade-start);
+}
+
+.opening__tagline {
+  margin-top: 12px;
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: clamp(14px, 2.4vw, 18px);
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  color: #fff;
+  opacity: 0;
+  transform: translateY(16px);
+  animation: opening-tagline-rise var(--t-tagline-dur) var(--opening-ease-rise) forwards;
+  animation-delay: var(--t-tagline-start);
+}
+
+@keyframes opening-char-rise {
+  to { transform: translateY(0); }
+}
+
+@keyframes opening-fade-in {
+  to { opacity: 1; }
+}
+
+@keyframes opening-line-grow {
+  to { transform: scaleX(1); }
+}
+
+@keyframes opening-line-fade {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@keyframes opening-red-expand {
+  0% {
+    visibility: visible;
+    transform: scaleY(0);
+  }
+  100% {
+    visibility: visible;
+    transform: scaleY(1);
+  }
+}
+
+@keyframes opening-logo-color-swap {
+  from { color: var(--opening-logo-pre); }
+  to { color: var(--opening-logo-post); }
+}
+
+@keyframes opening-sub-color-swap {
+  from { color: var(--opening-sub-pre); }
+  to { color: var(--opening-sub-post); }
+}
+
+@keyframes opening-tagline-rise {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes opening-overlay-fade {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+/* フォント読み込み完了まで全アニメを保留(document.fonts.ready で
+   .opening--ready 付与 → animation-play-state を running に切替)。
+   ※ delay の経過自体も paused 中は止まるため、ready 後に
+      Phase 1 の 0ms 起点が確定する。 */
+.opening,
+.opening .opening__red,
+.opening .opening__logo,
+.opening .opening__mask,
+.opening .opening__char,
+.opening .opening__sub,
+.opening .opening__line,
+.opening .opening__tagline {
+  animation-play-state: paused;
+}
+
+.opening.opening--ready,
+.opening.opening--ready .opening__red,
+.opening.opening--ready .opening__logo,
+.opening.opening--ready .opening__mask,
+.opening.opening--ready .opening__char,
+.opening.opening--ready .opening__sub,
+.opening.opening--ready .opening__line,
+.opening.opening--ready .opening__tagline {
+  animation-play-state: running;
+}
+
+/* スクロールロック: オーバーレイ表示中は body のスクロールを止める */
+body.opening-active {
+  overflow: hidden;
+}
+
+/* Hero冒頭スライドインはオーバーレイ表示中 pause、終了時に再生 */
+body.opening-active .hero h1 .line > span,
+body.opening-active .hero-sub {
+  animation-play-state: paused;
+}
+
+/* reduced-motion バリアント: JSが付与。アニメ全停止 + 最終状態を直接表示 */
+.opening--reduced,
+.opening--reduced * {
+  animation: none !important;
+}
+
+.opening--reduced {
+  background: var(--opening-red);
+}
+
+.opening--reduced .opening__red { transform: scaleY(1); visibility: visible; }
+.opening--reduced .opening__logo { color: var(--opening-logo-post); }
+.opening--reduced .opening__mask { overflow: visible; }
+.opening--reduced .opening__char { transform: translateY(0); }
+.opening--reduced .opening__sub {
+  color: var(--opening-sub-post);
+  opacity: 1;
+}
+.opening--reduced .opening__line {
+  opacity: 0;
+  transform: scaleX(1);
+}
+.opening--reduced .opening__tagline {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.opening--fading {
+  animation: opening-overlay-fade var(--t-overlay-fade-dur) ease forwards !important;
+  animation-delay: 0ms !important;
 }
