@@ -1924,3 +1924,425 @@ body.opening-active .hero-sub {
   animation: opening-overlay-fade var(--t-overlay-fade-dur) ease forwards !important;
   animation-delay: 0ms !important;
 }
+
+/* ==========================================================================
+   18. Phase 1 Structure 新規セクション最小スタイル
+       docs/DESIGN.md §9 Phase 1（骨組み）の完了基準を満たすための
+       最小限のレイアウト。v3カラートークン適用・本格的なテーマ整備は
+       Phase 2 Design で実施する。
+   ========================================================================== */
+
+/* 新規セクションのコンテナ共通(既存 .belief, .svc と同じ基本) */
+.way,
+.structure,
+.journal,
+.join,
+.company,
+.contact {
+  position: relative;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: clamp(96px, 12vw, 160px) clamp(20px, 4vw, 56px);
+}
+
+/* data-theme="light": 白背景セクションの最小色対応 */
+[data-theme="light"] {
+  background: #f7f7f4;
+  color: #0d0d0d;
+}
+[data-theme="light"] .section-lead {
+  color: rgba(13, 13, 13, 0.72);
+}
+[data-theme="light"] .eyebrow {
+  color: #D7003A;
+}
+[data-theme="light"] .eyebrow::before {
+  background: #D7003A;
+}
+[data-theme="light"] .stitle em {
+  color: #D7003A;
+}
+
+/* --- RIATIS Way --- */
+.way-list {
+  list-style: none;
+  display: grid;
+  gap: 24px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.way-item {
+  display: grid;
+  grid-template-columns: minmax(80px, 140px) 1fr;
+  gap: clamp(20px, 4vw, 48px);
+  padding: 32px 0;
+  border-top: 1px solid var(--line);
+}
+.way-num {
+  font-family: var(--font-display);
+  font-size: clamp(56px, 9vw, 120px);
+  line-height: 0.9;
+  color: var(--red);
+}
+.way-label {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  color: var(--muted);
+  margin-bottom: 16px;
+  text-transform: uppercase;
+}
+.way-statement {
+  font-family: var(--font-display-jp);
+  font-size: clamp(22px, 3.6vw, 40px);
+  line-height: 1.4;
+  font-weight: 500;
+}
+.way-statement .r {
+  color: var(--red);
+}
+.way-purpose-note {
+  text-align: center;
+  margin-top: 48px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  color: var(--muted);
+}
+
+/* --- Business Structure --- */
+.flow {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  max-width: 760px;
+  margin: 0 auto;
+}
+.flow-step {
+  width: 100%;
+  background: #fff;
+  border: 1px solid rgba(13, 13, 13, 0.12);
+  padding: clamp(24px, 4vw, 40px);
+  text-align: center;
+}
+.flow-step__label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: rgba(13, 13, 13, 0.55);
+  text-transform: uppercase;
+}
+.flow-step__title {
+  font-family: var(--font-display-jp);
+  font-size: clamp(20px, 3vw, 30px);
+  margin: 12px 0 20px;
+}
+.flow-step__tags {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+.flow-step__tags li {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  padding: 6px 12px;
+  border: 1px solid rgba(13, 13, 13, 0.2);
+}
+.flow-arrow {
+  list-style: none;
+  position: relative;
+  width: 2px;
+  height: 56px;
+  background: linear-gradient(to bottom, transparent, #D7003A 30%, #D7003A 70%, transparent);
+}
+.flow-arrow span {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: #D7003A;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* --- Pulse Journal --- */
+.journal-list {
+  list-style: none;
+  display: grid;
+  gap: 0;
+  max-width: 1100px;
+  margin: 0 auto;
+  border-top: 1px solid rgba(13, 13, 13, 0.15);
+}
+.journal-item article {
+  display: grid;
+  gap: 12px;
+  padding: 32px 0;
+  border-bottom: 1px solid rgba(13, 13, 13, 0.1);
+}
+.journal-meta {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  color: rgba(13, 13, 13, 0.6);
+}
+.journal-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  background: #0d0d0d;
+  color: #fff;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+.journal-badge--news { background: #D7003A; }
+.journal-title {
+  font-family: var(--font-display-jp);
+  font-size: clamp(20px, 2.6vw, 30px);
+  line-height: 1.45;
+}
+.journal-excerpt {
+  color: rgba(13, 13, 13, 0.72);
+  max-width: 720px;
+  font-size: 15px;
+  line-height: 1.85;
+}
+
+/* --- Join the Pulse --- */
+.join {
+  text-align: center;
+}
+.join .section-head {
+  text-align: left;
+}
+.join-copy {
+  max-width: 760px;
+  margin: 0 auto;
+  display: grid;
+  gap: 18px;
+  text-align: left;
+  font-size: 15px;
+  line-height: 1.95;
+  color: rgba(255, 255, 255, 0.78);
+}
+.join-big {
+  font-family: var(--font-display);
+  font-size: clamp(48px, 11vw, 140px);
+  line-height: 1;
+  letter-spacing: 0.02em;
+  margin: clamp(48px, 8vw, 96px) 0;
+  text-transform: uppercase;
+}
+.join-big .r { color: var(--red); }
+.join-tags {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  max-width: 920px;
+  margin: 0 auto clamp(40px, 6vw, 72px);
+}
+.join-tags li {
+  padding: 10px 18px;
+  border: 1px solid var(--line);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+}
+.join-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  padding: 18px 32px;
+  background: var(--red);
+  color: #fff;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+/* --- Company Profile --- */
+.company-list {
+  max-width: 880px;
+  margin: 0 auto;
+  border-top: 1px solid rgba(13, 13, 13, 0.18);
+}
+.company-row {
+  display: grid;
+  grid-template-columns: minmax(140px, 220px) 1fr;
+  gap: clamp(16px, 3vw, 40px);
+  padding: 22px 0;
+  border-bottom: 1px solid rgba(13, 13, 13, 0.1);
+}
+.company-row dt {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  color: rgba(13, 13, 13, 0.55);
+  text-transform: uppercase;
+}
+.company-row dd {
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+/* --- Contact --- */
+.contact .section-head {
+  grid-template-columns: 1fr;
+  text-align: center;
+  justify-items: center;
+}
+.contact .section-head .eyebrow {
+  justify-self: center;
+}
+.contact-big {
+  font-family: var(--font-display);
+  font-size: clamp(48px, 11vw, 140px);
+  line-height: 1;
+  letter-spacing: 0.02em;
+  margin: 16px 0;
+  text-transform: uppercase;
+}
+.contact-big .o { color: rgba(255, 255, 255, 0.55); }
+.contact-big .r { color: var(--red); }
+.contact-form {
+  max-width: 720px;
+  margin: 0 auto;
+  display: grid;
+  gap: 22px;
+  text-align: left;
+}
+.contact-field {
+  display: grid;
+  gap: 8px;
+}
+.contact-field label {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+.contact-field .req { color: var(--red); }
+.contact-field input,
+.contact-field select,
+.contact-field textarea {
+  font: inherit;
+  background: transparent;
+  border: 1px solid var(--line);
+  color: var(--fg);
+  padding: 14px 16px;
+  border-radius: 0;
+  appearance: none;
+  -webkit-appearance: none;
+}
+.contact-field textarea { resize: vertical; min-height: 140px; }
+.contact-field input:focus-visible,
+.contact-field select:focus-visible,
+.contact-field textarea:focus-visible {
+  outline: 2px solid var(--red);
+  outline-offset: 2px;
+}
+.contact-field select option {
+  background: #0d0d0d;
+  color: #fff;
+}
+.contact-submit {
+  justify-self: start;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 28px;
+  background: var(--red);
+  color: #fff;
+  border: none;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  cursor: pointer;
+  opacity: 0.55;
+}
+.contact-submit[disabled] { cursor: not-allowed; }
+.contact-note {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+/* --- Footer 拡張 --- */
+.site-footer {
+  padding: clamp(64px, 8vw, 112px) clamp(20px, 4vw, 56px) 40px;
+  border-top: 1px solid var(--line);
+  max-width: 1600px;
+  margin: 0 auto;
+}
+.footer-message {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 5vw, 64px);
+  line-height: 1.05;
+  letter-spacing: 0.02em;
+  margin-bottom: clamp(40px, 6vw, 72px);
+  text-transform: uppercase;
+}
+.footer-message .r { color: var(--red); }
+.footer-cols {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 32px;
+  margin-bottom: clamp(40px, 6vw, 72px);
+  padding-bottom: clamp(40px, 6vw, 72px);
+  border-bottom: 1px solid var(--line);
+}
+.footer-col__title {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  color: var(--muted);
+  margin-bottom: 18px;
+  text-transform: uppercase;
+}
+.footer-col ul {
+  list-style: none;
+  display: grid;
+  gap: 10px;
+}
+.footer-col a {
+  font-size: 14px;
+  color: var(--fg);
+  transition: color 0.2s var(--ease-soft);
+}
+.footer-col a:hover,
+.footer-col a:focus-visible {
+  color: var(--red);
+}
+
+/* --- Mobile responsive 最小対応 --- */
+@media (max-width: 720px) {
+  .way-item {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .way-num { font-size: 56px; }
+  .company-row {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+  .flow-arrow span {
+    left: 12px;
+    font-size: 10px;
+  }
+}
