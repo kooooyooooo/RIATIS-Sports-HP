@@ -21,12 +21,21 @@
    ========================================================================== */
 
 /* 1. Design tokens
-   v3パレット(#D7003A / #0D0D0D / #F7F7F4 ほか)への差し替えは
-   実装フェーズ2で行う。docs/DESIGN.md §6 参照。 */
+   v3パレット(DESIGN.md §6)。:root はダークテーマのデフォルト値、
+   [data-theme="light"] でセクション単位に再定義する(§5 参照)。 */
 :root {
-  --bg: #0a0a0a;
+  /* v3 raw color tokens */
+  --color-red: #D7003A;
+  --color-black: #0D0D0D;
+  --color-white: #FFFFFF;
+  --color-off-white: #F7F7F4;
+  --color-light-gray: #E8E8E8;
+  --color-deep-gray: #171717;
+
+  /* Theme variables (default: dark) */
+  --bg: var(--color-black);
   --fg: #f5f3ee;
-  --red: #d4111c;
+  --red: var(--color-red);
   --red-2: #ff2a36;
   --muted: rgba(255, 255, 255, 0.55);
   --line: rgba(255, 255, 255, 0.12);
@@ -39,6 +48,19 @@
 
   --ease-power: cubic-bezier(0.77, 0, 0.175, 1);
   --ease-soft: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Light theme(白背景セクション)用の変数オーバーライド。
+   data-theme="light" が付いたセクション以下で --bg / --fg / --muted / --line を
+   再定義することで、既存コンポーネント(.eyebrow / .stitle / .section-lead 等)を
+   両テーマで再利用できる。 */
+[data-theme="light"] {
+  --bg: var(--color-off-white);
+  --fg: var(--color-black);
+  --muted: rgba(13, 13, 13, 0.55);
+  --line: rgba(13, 13, 13, 0.12);
+  background: var(--bg);
+  color: var(--fg);
 }
 
 /* 2. Base / utilities */
@@ -494,7 +516,7 @@ body.nav-open .menu-btn span:last-child {
 
 .hero-btn--primary:hover,
 .hero-btn--primary:focus-visible {
-  color: #0a0a0a;
+  color: var(--color-black);
 }
 
 .hero-btn--ghost {
@@ -796,7 +818,7 @@ body.nav-open .menu-btn span:last-child {
 
 .section-lead {
   max-width: 32rem;
-  color: rgba(255, 255, 255, 0.72);
+  color: var(--muted);
   font-size: clamp(0.95rem, 1.15vw, 1.0625rem);
   font-weight: 500;
   line-height: 1.9;
@@ -957,13 +979,13 @@ body.nav-open .menu-btn span:last-child {
   padding: clamp(72px, 8vw, 112px) clamp(20px, 4vw, 56px);
   overflow: hidden;
   background: var(--red);
-  color: #0a0a0a;
+  color: var(--color-black);
   text-align: center;
 }
 
 .band .pre {
   margin-bottom: 18px;
-  color: #0a0a0a;
+  color: var(--color-black);
   font-family: var(--font-mono);
   font-size: 11px;
   letter-spacing: 0;
@@ -1016,13 +1038,13 @@ body.nav-open .menu-btn span:last-child {
   margin: 0 0.12em 0 0;
   color: transparent;
   font-style: italic;
-  -webkit-text-stroke: 1.5px #0a0a0a;
+  -webkit-text-stroke: 1.5px var(--color-black);
 }
 
 /* 11. ServiceGrid (svc) */
 
 .svc-list {
-  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  border-top: 1px solid var(--line);
 }
 
 .svc-item {
@@ -1033,7 +1055,7 @@ body.nav-open .menu-btn span:last-child {
   align-items: start;
   padding: clamp(36px, 4vw, 54px) 0;
   overflow: hidden;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  border-bottom: 1px solid var(--line);
   transition: padding 0.5s ease;
 }
 
@@ -1073,7 +1095,7 @@ body.nav-open .menu-btn span:last-child {
 
 .svc-item:hover .n,
 .svc-item:focus-within .n {
-  color: #0a0a0a;
+  color: var(--color-black);
 }
 
 .svc-item .nm {
@@ -1093,7 +1115,7 @@ body.nav-open .menu-btn span:last-child {
 .svc-item .nm-category {
   align-self: flex-start;
   padding: 4px 10px;
-  border: 1px solid rgba(255, 255, 255, 0.32);
+  border: 1px solid var(--line);
   color: var(--muted);
   font-family: var(--font-mono);
   font-size: 10px;
@@ -1105,8 +1127,8 @@ body.nav-open .menu-btn span:last-child {
 
 .svc-item:hover .nm-category,
 .svc-item:focus-within .nm-category {
-  color: #0a0a0a;
-  border-color: rgba(0, 0, 0, 0.55);
+  color: var(--color-black);
+  border-color: rgba(13, 13, 13, 0.55);
 }
 
 .svc-item .nm-headline {
@@ -1132,12 +1154,12 @@ body.nav-open .menu-btn span:last-child {
 
 .svc-item:hover .nm,
 .svc-item:focus-within .nm {
-  color: #0a0a0a;
+  color: var(--color-black);
 }
 
 .svc-item:hover .nm svg,
 .svc-item:focus-within .nm svg {
-  stroke: #0a0a0a;
+  stroke: var(--color-black);
 }
 
 .svc-item .ds {
@@ -1149,7 +1171,7 @@ body.nav-open .menu-btn span:last-child {
 }
 
 .svc-tagline {
-  color: rgba(255, 255, 255, 0.92);
+  color: var(--fg);
   font-family: var(--font-serif);
   font-size: clamp(1.0625rem, 1.4vw, 1.375rem);
   font-weight: 700;
@@ -1158,7 +1180,7 @@ body.nav-open .menu-btn span:last-child {
 }
 
 .svc-desc {
-  color: rgba(255, 255, 255, 0.72);
+  color: var(--muted);
   font-size: clamp(0.9rem, 1.05vw, 1rem);
   line-height: 1.9;
   transition: color 0.4s ease;
@@ -1168,7 +1190,7 @@ body.nav-open .menu-btn span:last-child {
 .svc-item:hover .svc-desc,
 .svc-item:focus-within .svc-tagline,
 .svc-item:focus-within .svc-desc {
-  color: rgba(0, 0, 0, 0.88);
+  color: rgba(13, 13, 13, 0.88);
 }
 
 .svc-tags {
@@ -1182,8 +1204,8 @@ body.nav-open .menu-btn span:last-child {
 
 .svc-tags li {
   padding: 4px 10px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  color: rgba(255, 255, 255, 0.65);
+  border: 1px solid var(--line);
+  color: var(--muted);
   font-family: var(--font-mono);
   font-size: 10px;
   letter-spacing: 0.04em;
@@ -1193,8 +1215,8 @@ body.nav-open .menu-btn span:last-child {
 
 .svc-item:hover .svc-tags li,
 .svc-item:focus-within .svc-tags li {
-  color: rgba(0, 0, 0, 0.88);
-  border-color: rgba(0, 0, 0, 0.35);
+  color: rgba(13, 13, 13, 0.88);
+  border-color: rgba(13, 13, 13, 0.35);
 }
 
 .svc-item .ar {
@@ -1211,7 +1233,7 @@ body.nav-open .menu-btn span:last-child {
 
 .svc-item:hover .ar,
 .svc-item:focus-within .ar {
-  color: #0a0a0a;
+  color: var(--color-black);
   transform: translateX(10px);
 }
 
@@ -1945,23 +1967,8 @@ body.opening-active .hero-sub {
   padding: clamp(96px, 12vw, 160px) clamp(20px, 4vw, 56px);
 }
 
-/* data-theme="light": 白背景セクションの最小色対応 */
-[data-theme="light"] {
-  background: #f7f7f4;
-  color: #0d0d0d;
-}
-[data-theme="light"] .section-lead {
-  color: rgba(13, 13, 13, 0.72);
-}
-[data-theme="light"] .eyebrow {
-  color: #D7003A;
-}
-[data-theme="light"] .eyebrow::before {
-  background: #D7003A;
-}
-[data-theme="light"] .stitle em {
-  color: #D7003A;
-}
+/* data-theme="light" 変数オーバーライドは冒頭 :root 直後で定義済み。
+   ここでは新規セクション固有のスタイルのみを記述する。 */
 
 /* --- RIATIS Way --- */
 .way-list {
@@ -2058,7 +2065,7 @@ body.opening-active .hero-sub {
   position: relative;
   width: 2px;
   height: 56px;
-  background: linear-gradient(to bottom, transparent, #D7003A 30%, #D7003A 70%, transparent);
+  background: linear-gradient(to bottom, transparent, var(--red) 30%, var(--red) 70%, transparent);
 }
 .flow-arrow span {
   position: absolute;
@@ -2068,7 +2075,7 @@ body.opening-active .hero-sub {
   font-family: var(--font-mono);
   font-size: 11px;
   letter-spacing: 0.2em;
-  color: #D7003A;
+  color: var(--red);
   text-transform: uppercase;
   white-space: nowrap;
 }
@@ -2100,13 +2107,13 @@ body.opening-active .hero-sub {
 .journal-badge {
   display: inline-block;
   padding: 4px 10px;
-  background: #0d0d0d;
-  color: #fff;
+  background: var(--color-black);
+  color: var(--color-white);
   font-size: 11px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
 }
-.journal-badge--news { background: #D7003A; }
+.journal-badge--news { background: var(--red); }
 .journal-title {
   font-family: var(--font-display-jp);
   font-size: clamp(20px, 2.6vw, 30px);
@@ -2257,8 +2264,8 @@ body.opening-active .hero-sub {
   outline-offset: 2px;
 }
 .contact-field select option {
-  background: #0d0d0d;
-  color: #fff;
+  background: var(--color-black);
+  color: var(--color-white);
 }
 .contact-submit {
   justify-self: start;
