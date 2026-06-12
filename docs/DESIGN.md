@@ -56,7 +56,7 @@ Footer(ロゴ + コピーライトのみ)
 | 11 | Contact | mailtoリンクのみ | 問い合わせ種別+フォーム(またはフォームへの導線)へ | 改修 |
 | 12 | Footer | ロゴ+コピーライトのみ | サイトマップ + Legal(Privacy / Terms / 特商法)+ サービスリンクへ拡張 | 改修 |
 | 13 | 背景色設計 | 全セクション黒基調 | 黒(Hero / RIATIS Way / Contact)と白(Services / Company 等)の交互構成へ | 改修 |
-| 14 | カラートークン | red `#d4111c` / bg `#0a0a0a` | red `#D7003A` / black `#0D0D0D` / off-white `#F7F7F4` 等のv3パレットへ | 改修 |
+| 14 | カラートークン | red `#d4111c` / bg `#0a0a0a` | red `#D71200`(2026-06-12 改訂) / black `#0D0D0D` / off-white `#F7F7F4` 等のv3パレットへ | 改修 |
 | 15 | SEO / OGP | title・descriptionのみ | v3指定のtitle / description / OGP / Organization構造化データ | 改修+新規 |
 | 16 | 法務ページ | **存在しない** | Privacy Policy / Terms / 特商法(正式原稿の確認後に作成) | 新規 |
 
@@ -253,7 +253,10 @@ Contact(#contact)※右上CTAボタン
 ```css
 :root {
   /* v3 カラーパレット(ブリーフ §15.3) */
-  --color-red: #D7003A;        /* 現 #d4111c から変更 */
+  --color-red: #D71200;        /* 現 #d4111c から変更。2026-06-12 改訂:
+                                  ブリーフ §15.3 当初値 #D7003A はマゼンタ寄りで
+                                  ブランド意図と乖離するため、オープニング演出
+                                  (§7.1.1)で使用中の純粋な赤 #D71200 に統一。 */
   --color-black: #0D0D0D;      /* 現 #0a0a0a から変更 */
   --color-white: #FFFFFF;
   --color-off-white: #F7F7F4;  /* 白背景セクションのベース */

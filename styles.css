@@ -25,7 +25,7 @@
    [data-theme="light"] でセクション単位に再定義する(§5 参照)。 */
 :root {
   /* v3 raw color tokens */
-  --color-red: #D7003A;
+  --color-red: #D71200;
   --color-black: #0D0D0D;
   --color-white: #FFFFFF;
   --color-off-white: #F7F7F4;
