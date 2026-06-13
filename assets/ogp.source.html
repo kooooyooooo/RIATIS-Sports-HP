@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <title>RIATIS Sports — OGP source (1200×630)</title>
+    <!-- DESIGN.md §7.3 に基づく OGP 画像のソース。
+         レイアウト変更後は headless Chrome で再書き出し:
+         /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome \
+           --headless --disable-gpu --hide-scrollbars \
+           --window-size=1200,630 --default-background-color=00000000 \
+           --screenshot=assets/ogp.png \
+           file://"$PWD"/assets/ogp.source.html
+    -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+JP:wght@500;700&display=block"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --red: #d71200;
+        --black: #0d0d0d;
+        --white: #ffffff;
+        --muted: rgba(255, 255, 255, 0.55);
+        --line: rgba(255, 255, 255, 0.12);
+      }
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      html, body { width: 1200px; height: 630px; overflow: hidden; }
+      body {
+        background: var(--black);
+        color: var(--white);
+        font-family: "Noto Sans JP", sans-serif;
+        position: relative;
+      }
+
+      /* 罫線グリッド(Heroの hero-grid と同じ世界観) */
+      .grid {
+        position: absolute;
+        inset: 0;
+        background-image:
+          linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+        background-size: 80px 80px;
+        mask-image: radial-gradient(ellipse at 50% 50%, #000 30%, transparent 80%);
+      }
+      /* Pulse の赤グロー(右上) */
+      .glow {
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(ellipse at 78% 38%, rgba(215, 18, 0, 0.32), transparent 56%),
+          radial-gradient(ellipse at 8% 92%, rgba(215, 18, 0, 0.12), transparent 52%);
+      }
+
+      .frame {
+        position: relative;
+        height: 100%;
+        padding: 56px 64px;
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+        gap: 16px;
+      }
+
+      .meta {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 14px;
+        letter-spacing: 0.18em;
+        color: var(--muted);
+        text-transform: uppercase;
+      }
+      .meta .dot { color: var(--red); margin-right: 8px; }
+
+      .body {
+        display: flex;
+        align-items: center;
+        position: relative;
+      }
+      .accent {
+        width: 4px;
+        background: var(--red);
+        height: 68%;
+        margin-right: 36px;
+        box-shadow: 0 0 24px rgba(215, 18, 0, 0.45);
+      }
+      .copy { display: flex; flex-direction: column; gap: 22px; }
+      h1 {
+        font-family: "Anton", sans-serif;
+        font-size: 124px;
+        line-height: 0.92;
+        letter-spacing: 0.005em;
+        text-transform: uppercase;
+        font-weight: 400;
+      }
+      h1 .red { color: var(--red); }
+      .lead {
+        font-family: "Noto Sans JP", sans-serif;
+        font-size: 22px;
+        font-weight: 500;
+        line-height: 1.55;
+        color: rgba(255, 255, 255, 0.86);
+        letter-spacing: 0.02em;
+      }
+
+      .foot {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        border-top: 1px solid var(--line);
+        padding-top: 22px;
+      }
+      .brand {
+        font-family: "Anton", sans-serif;
+        font-size: 28px;
+        letter-spacing: 0.04em;
+      }
+      .brand .dot {
+        display: inline-block;
+        width: 9px;
+        height: 9px;
+        background: var(--red);
+        border-radius: 50%;
+        margin-right: 10px;
+        vertical-align: middle;
+      }
+      .tag {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 13px;
+        letter-spacing: 0.22em;
+        color: var(--muted);
+        text-transform: uppercase;
+      }
+
+      /* ECG(細い水平のパルス線。下端にスライド配置) */
+      .ecg {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 92px;
+        height: 36px;
+        opacity: 0.42;
+      }
+      .ecg svg { width: 100%; height: 100%; display: block; }
+    </style>
+  </head>
+  <body>
+    <div class="grid" aria-hidden="true"></div>
+    <div class="glow" aria-hidden="true"></div>
+    <svg class="ecg" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true">
+      <path
+        d="M0 20 L260 20 L280 20 L300 6 L320 34 L340 2 L360 38 L380 20 L600 20 L620 20 L640 14 L660 26 L680 20 L900 20 L920 20 L940 6 L960 34 L980 2 L1000 38 L1020 20 L1200 20"
+        fill="none"
+        stroke="#d71200"
+        stroke-width="2"
+      />
+    </svg>
+    <div class="frame">
+      <div class="meta">
+        <div><span class="dot">●</span>RIATIS SPORTS / EST. 2025</div>
+        <div>DIR.01 / PULSE DRIVEN</div>
+      </div>
+      <div class="body">
+        <div class="accent" aria-hidden="true"></div>
+        <div class="copy">
+          <h1>
+            TURN KNOWLEDGE<br />
+            INTO MOMENTUM<span class="red">.</span>
+          </h1>
+          <p class="lead">知識を、社会を前に進む力へ。</p>
+        </div>
+      </div>
+      <div class="foot">
+        <div class="brand"><span class="dot"></span>RIATIS Sports</div>
+        <div class="tag">BEAT FOR THOSE WHO BLEED SPORTS.</div>
+      </div>
+    </div>
+  </body>
+</html>

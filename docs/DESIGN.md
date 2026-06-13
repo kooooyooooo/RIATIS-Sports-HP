@@ -433,7 +433,7 @@ pyftsubset GenSekiGothic2JP-H.otf \
 
 ## 8. 要確認事項(実装前にユーザー確認が必要)
 
-2026-06-13 に「特定商取引法に基づく表記 v3」を受領し、#1 / #2 / #4(特商法) / #8 の各項目を解消した。
+2026-06-13 に「特定商取引法に基づく表記 v3」を受領し、#1 / #2 / #4(特商法) / #8 の各項目を解消した。2026-06-13 後の追加対応で #7 OGP画像も解消(残り: #3 / #5 / #6 と Privacy・Terms)。
 
 | # | 項目 | 状態 | 反映内容 / 残課題 |
 | --- | --- | --- | --- |
@@ -443,7 +443,7 @@ pyftsubset GenSekiGothic2JP-H.otf \
 | 4 | Privacy / Terms / 特商法 | 🟡 特商法のみ解消 | 特商法ページ `tokushoho/index.html` を作成し Footer Legal列を解禁。Privacy / Terms は正式原稿の確認が取れるまで Footer に掲載しない |
 | 5 | Pulse Journal 初期記事 | 🔵 継続 | 「コーポレートサイト公開」記事を仮で1件掲載中。実在エントリ最低3件揃った時点で正式公開 |
 | 6 | 資本金の公開可否 | 🔵 継続 | コーポレートサイト掲載可否を最終確認。掲載可となった時点で Company Profile に追加 |
-| 7 | OGP画像 | 🔵 継続 | 制作(実装フェーズ内で生成可、トーンは§7.3) |
+| 7 | OGP画像 | ✅ 解消 | `assets/ogp.png`(1200×630)を §7.3 のトーンで制作し、`index.html` と `tokushoho/index.html` の `og:image` / `twitter:image` を絶対URLで参照。ソースは `assets/ogp.source.html` に保管(レイアウト変更時は headless Chrome で再書き出し) |
 | 8 | 公開ドメイン | ✅ 解消 | `https://www.riatis-sports.co.jp/` を正式ドメインとして採用。OGP `og:url` / JSON-LD `url` は Phase 6 で反映 |
 
 ---
