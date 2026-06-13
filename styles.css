@@ -540,44 +540,6 @@ body.nav-open .menu-btn span:last-child {
   background: rgba(255, 255, 255, 0.08);
 }
 
-.bpm {
-  display: flex;
-  gap: 14px;
-  align-items: center;
-  justify-content: flex-end;
-  font-family: var(--font-mono);
-  font-size: 10px;
-  letter-spacing: 0;
-  color: var(--muted);
-  text-transform: uppercase;
-}
-
-.bpm .num {
-  color: var(--red);
-  font-family: var(--font-display);
-  font-size: 52px;
-  letter-spacing: 0;
-  animation: pulse 1s ease-in-out infinite;
-}
-
-.bpm-label {
-  color: #fff;
-  margin-top: 4px;
-}
-
-@keyframes pulse {
-  0%,
-  100% {
-    transform: scale(1);
-    opacity: 1;
-  }
-
-  50% {
-    transform: scale(1.08);
-    opacity: 0.85;
-  }
-}
-
 /* 6. ECG band */
 
 .ecg {
@@ -1508,14 +1470,6 @@ footer {
     gap: 30px;
   }
 
-  .bpm {
-    justify-content: flex-start;
-  }
-
-  .bpm .num {
-    font-size: 40px;
-  }
-
   .scroll-theater .idx {
     display: none;
   }
@@ -2121,18 +2075,19 @@ body.opening-active .hero-sub {
   );
   overflow: visible;
 }
+/* flow-arrow の赤ドットは中央固定 (Phase 8-2: 同時稼働する無限ループを停止)
+   ECG を「唯一の動」として残すため、流下アニメは廃止 */
 .flow-arrow::before {
   content: "";
   position: absolute;
   left: 50%;
-  top: 0;
+  top: 50%;
   width: 10px;
   height: 10px;
   border-radius: 50%;
   background: var(--red);
   box-shadow: 0 0 14px rgba(215, 18, 0, 0.6);
   transform: translate(-50%, -50%);
-  animation: flow-pulse-dot 1.9s var(--ease-soft) infinite;
 }
 .flow-arrow::after {
   content: "";
@@ -2158,19 +2113,6 @@ body.opening-active .hero-sub {
   text-transform: uppercase;
   white-space: nowrap;
 }
-@keyframes flow-pulse-dot {
-  0% { top: 0; opacity: 0; }
-  12% { opacity: 1; }
-  88% { opacity: 1; }
-  100% { top: 100%; opacity: 0; }
-}
-@media (prefers-reduced-motion: reduce) {
-  .flow-arrow::before {
-    animation: none;
-    top: 50%;
-  }
-}
-
 /* --- Pulse Journal --- */
 .journal-list {
   list-style: none;
