@@ -460,8 +460,18 @@ pyftsubset GenSekiGothic2JP-H.otf \
 | 2 Design | v3トークン適用(red/black差し替え)、`data-theme` による黒白交互テーマ、白背景バリアントのCSS | 黒白リズムが §3.2 どおり、赤の使用箇所が §6 の制限内 |
 | 3 Copy | Hero差し替え、Belief更新(Pioneer→Ownership)、Services 3カードのコピー反映 | ブリーフのコピー + 2026-06-12 改訂と完全一致 |
 | 4 Components | BusinessFlow / JournalList / PartnerCTA / CompanyTable / ContactForm の実装 | §5 の命名・構成と一致 |
-| 5 Responsive | スマホファースト検証(Hero英字の折返し、Serviceカード縦積み、CTAタップ領域) | 360px〜で崩れなし、reduced-motionフォールバック動作 |
+| 5 Responsive | スマホファースト検証(Hero英字の折返し、Serviceカード縦積み、CTAタップ領域)+ ヘッダーのテーマ追従(下記サブ課題) | 360px〜で崩れなし、reduced-motionフォールバック動作、PC幅で白背景セクション通過中もヘッダーが視認できる |
 | 6 SEO & Legal | title/OGP/JSON-LD、確認済みの正式情報反映、法務ページ作成とFooter導線 | §8 の確認事項がすべて解消されてから完了 |
+
+### Phase 5 サブ課題:ヘッダーのテーマ追従(2026-06-13 追加)
+
+- **現象**: PC幅(>900px)で白背景セクション(`#services` / `#structure` / `#journal` / `#company`)に入ると、ヘッダーのロゴ・ナビ文字が背景に溶けて事実上見えなくなる。モバイルは別経路で解消済み(`@media (max-width: 900px)` で `mix-blend-mode: normal` へ戻している)が、PC幅のみ取り残されている。
+- **原因**: `.site-nav` に `mix-blend-mode: difference`(styles.css:183)を適用しており、黒背景上では白く反転して見える一方、`#F7F7F4` のような明るい背景では差分が小さく視認性が落ちる。
+- **修正方針(次回着手)**:
+  1. `IntersectionObserver` で `section[data-theme]` を監視し、ビューポート上端付近のセクションテーマを `<body>` か `.site-header` に `data-on-light` 属性として反映する(既存の `initReveal()` パターンに合わせて `initHeaderTheme()` を追加)。
+  2. CSS側で `mix-blend-mode: difference` は使用せず、デフォルトを白文字、`.site-header[data-on-light]` 時に `color: var(--color-black)` と `.logo .dot { background: var(--color-red); }` 等を明示する。
+  3. オープニング演出中(`body.opening-active`)はヘッダー非表示のままなのでテーマ判定不要。reduced-motion でも IntersectionObserver は通常動作させる(視認性は演出に依存しない)。
+- **検証観点**: 黒→白→黒の切替時に200ms以内で色が追従、PC・タブレット幅で白背景セクション通過中もリンクがホバー判別可能、`prefers-reduced-motion: reduce` 時も同じ追従が効くこと。
 
 ### やってはいけないこと(ブリーフ §19 再掲・実装時チェックリスト)
 
