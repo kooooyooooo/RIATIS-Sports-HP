@@ -173,6 +173,14 @@ svg {
   position: fixed;
   inset: 0 0 auto;
   z-index: 800;
+  color: var(--color-white);
+  transition: color 0.25s ease;
+}
+
+/* 白背景セクション通過中はヘッダー文字を黒へ追従(JS側 initHeaderTheme で属性付与)。
+   §9 Phase 5 サブ課題(DESIGN.md:466)。mix-blend-mode は使わない。 */
+.site-header[data-on-light] {
+  color: var(--color-black);
 }
 
 .site-nav {
@@ -180,7 +188,6 @@ svg {
   align-items: center;
   justify-content: space-between;
   padding: 22px 36px;
-  mix-blend-mode: difference;
 }
 
 .logo {
@@ -293,6 +300,24 @@ body.nav-open .menu-btn span:first-child {
 
 body.nav-open .menu-btn span:last-child {
   transform: translateY(-4.5px) rotate(-45deg);
+}
+
+/* data-on-light 時の追従オーバーライド: --fg を直接参照しているコンポーネントは
+   ヘッダーの color では追従できないため明示する。 */
+.site-header[data-on-light] .nav-cta {
+  border-color: var(--color-black);
+  transition: background 0.3s ease, color 0.3s ease, border-color 0.25s ease;
+}
+
+.site-header[data-on-light] .nav-cta:hover,
+.site-header[data-on-light] .nav-cta:focus-visible {
+  background: var(--red);
+  color: var(--color-white);
+  border-color: var(--red);
+}
+
+.site-header[data-on-light] .menu-btn {
+  border-color: rgba(13, 13, 13, 0.35);
 }
 
 /* 5. Hero */
@@ -1408,7 +1433,6 @@ footer {
 @media (max-width: 900px) {
   .site-nav {
     padding: 16px 18px;
-    mix-blend-mode: normal;
   }
 
   .logo,

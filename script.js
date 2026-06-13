@@ -126,6 +126,53 @@ function initCursorPulse() {
   );
 }
 
+/* HeaderTheme: ヘッダー直下にあるセクションの data-theme を .site-header に反映。
+   DESIGN.md §9 Phase 5 サブ課題(:466)。mix-blend-mode を使わずに、IntersectionObserver
+   と probe(ヘッダー下端付近の y 座標)で active セクションを判定して属性をトグルする。 */
+function initHeaderTheme() {
+  const header = document.querySelector(".site-header");
+  if (!header) return;
+
+  const themed = Array.from(
+    document.querySelectorAll("section[data-theme], footer[data-theme]"),
+  );
+  if (themed.length === 0) return;
+
+  const PROBE_Y = 32; // ヘッダー上端から少し下のスキャンライン
+  let current = null;
+
+  function apply(active) {
+    if (!active || active === current) return;
+    current = active;
+    if (active.dataset.theme === "light") {
+      header.setAttribute("data-on-light", "");
+    } else {
+      header.removeAttribute("data-on-light");
+    }
+  }
+
+  function resolveActive() {
+    for (const el of themed) {
+      const rect = el.getBoundingClientRect();
+      if (rect.top <= PROBE_Y && rect.bottom > PROBE_Y) {
+        return el;
+      }
+    }
+    // ページ最上部より上の場合は最初、最下部より下の場合は最後を採用。
+    const firstRect = themed[0].getBoundingClientRect();
+    return firstRect.top > PROBE_Y ? themed[0] : themed[themed.length - 1];
+  }
+
+  const observer = new IntersectionObserver(
+    () => apply(resolveActive()),
+    { rootMargin: "0px 0px -70% 0px", threshold: [0, 0.5, 1] },
+  );
+  themed.forEach((el) => observer.observe(el));
+
+  window.addEventListener("resize", () => apply(resolveActive()));
+  apply(resolveActive());
+}
+
 /* Opening: マスクライズ オープニング演出の終了処理(タイムラインはCSS主導)
    - 通常時: CSSのopening-overlay-fade完了でクリーンアップ
    - reduced-motion時: 最終状態を即時表示 → 1秒ホールド → フェードアウト
@@ -253,4 +300,5 @@ initMobileMenu();
 initReveal();
 initScrollTheater();
 initCursorPulse();
+initHeaderTheme();
 initOpening();
