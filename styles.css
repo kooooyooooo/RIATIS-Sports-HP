@@ -3091,8 +3091,8 @@ body.opening-active .hero-sub {
   height: 112%;
   fill: var(--mvv-chevron);
   pointer-events: none;
-  opacity: 0.94;
-  filter: drop-shadow(0 6px 28px rgba(0, 0, 0, 0.22));
+  opacity: 0.6;
+  filter: drop-shadow(0 6px 28px rgba(0, 0, 0, 0.18));
 }
 
 /* Value 幕の philosophy リスト (5つの行動指針を 1幕内に統合)
