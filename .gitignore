@@ -1,1 +1,19 @@
 .vercel
+
+# Font tooling (local only)
+.venv-fonts/
+tmp/
+
+# Source/working materials (not deployed)
+*_挿入画像.png
+hero＿挿入画像.png
+MVVの部分の参考デザイン.jpg
+RIATIS_背景透過白背景黒文字ロゴ_四角形.png
+REGAIN_moc.png
+RIATIS_App_moc.png
+特定商取引法に基づく表記_v3.pdf
+privacy.md
+terms.md
+
+# OS
+.DS_Store

@@ -48,7 +48,7 @@ Footer(ロゴ + コピーライトのみ)
 | 3 | Why We Exist | Scroll Theater 4幕 | 内容はほぼ同一。`01 / THE UNFAIRNESS` 等の番号見出し形式へ再構成 | 改修 |
 | 4 | RIATIS Way(MVV) | **存在しない** | Mission / Vision / Purpose を黒背景セクションとして新設 | 新規 |
 | 5 | Belief System | 5 Values(Pioneer含む)、和文のみ | `Ownership / Own the Outcome` 等、英語サブコピー付き5 Valuesへ更新 | 改修 |
-| 6 | Services | 4件・名称が旧仕様 | 6件(RIATIS / REGAIN / AI Coaching / SAC / Matching / Media)+ 対象・CTA付きカードへ | 改修+新規 |
+| 6 | Services | 4件・名称が旧仕様 | 3件(RIATIS / REGAIN / SAC)+ 対象タグ・CTA付きカードへ。AI Coaching は REGAIN が機能を内包するため独立カード化せず、Matching / Media は不要と判断しカット(2026-06-12 ユーザー決定) | 改修+新規 |
 | 7 | Business Structure | **存在しない** | 「How RIATIS Moves」事業構造フロー図を新設 | 新規 |
 | 8 | Pulse Journal | **存在しない** | News/Projects/Insights 最新3件表示を新設(一覧ページは将来) | 新規 |
 | 9 | Join the Pulse | CTA1ボタンのみ | 募集カテゴリ(講師・パートナー・インターン等)を持つセクションへ拡張 | 改修 |
@@ -56,7 +56,7 @@ Footer(ロゴ + コピーライトのみ)
 | 11 | Contact | mailtoリンクのみ | 問い合わせ種別+フォーム(またはフォームへの導線)へ | 改修 |
 | 12 | Footer | ロゴ+コピーライトのみ | サイトマップ + Legal(Privacy / Terms / 特商法)+ サービスリンクへ拡張 | 改修 |
 | 13 | 背景色設計 | 全セクション黒基調 | 黒(Hero / RIATIS Way / Contact)と白(Services / Company 等)の交互構成へ | 改修 |
-| 14 | カラートークン | red `#d4111c` / bg `#0a0a0a` | red `#D7003A` / black `#0D0D0D` / off-white `#F7F7F4` 等のv3パレットへ | 改修 |
+| 14 | カラートークン | red `#d4111c` / bg `#0a0a0a` | red `#D71200`(2026-06-12 改訂) / black `#0D0D0D` / off-white `#F7F7F4` 等のv3パレットへ | 改修 |
 | 15 | SEO / OGP | title・descriptionのみ | v3指定のtitle / description / OGP / Organization構造化データ | 改修+新規 |
 | 16 | 法務ページ | **存在しない** | Privacy Policy / Terms / 特商法(正式原稿の確認後に作成) | 新規 |
 
@@ -70,8 +70,9 @@ Footer(ロゴ + コピーライトのみ)
 
 ```
 /                  … トップ(全セクション)
+/tokushoho/        … 特定商取引法に基づく表記(2026-06-13 v3受領により実装済)
 /journal/          … Pulse Journal 一覧(将来追加。トップは最新3件のみ)
-/privacy/ /terms/ /tokushoho/ … 法務ページ(正式原稿確認後に追加)
+/privacy/ /terms/  … 法務ページ(正式原稿確認後に追加)
 ```
 
 IRやSustainability等は現時点では作らないが、ナビとフッターのリスト構造を増設可能な形で実装する。
@@ -152,13 +153,17 @@ Contact(#contact)※右上CTAボタン
 - `Own or Die` は外部サイトでは使用しない(ブリーフ7.3)。
 - カードUI(グリッド線 + ホバーで赤面スライド)は現行実装を継続。各カードに詳細文(ブリーフ7.3)を追加し、ホバー/タップで表示するか常時表示かは実装時にモバイル可読性で判断(初期実装は常時表示を推奨)。
 
-### 4.5 Services(ブリーフ §8)
+### 4.5 Services(ブリーフ §8 / 2026-06-12 改訂)
 
 - 白背景(`#F7F7F4`)へ変更し信頼感を出す。タイトル `Services / What we are building.`
-- 6カード: `S/01 RIATIS(Knowledge Platform)` `S/02 REGAIN(AI Implementation)` `S/03 AI Coaching` `S/04 SAC(Youth Development)` `S/05 Matching` `S/06 Media / SNS`。
+- 3カード(2026-06-12にユーザー判断で6→3へ縮約):
+  - `S/01 RIATIS`(Knowledge Platform)
+  - `S/02 REGAIN`(AI Implementation)— ブリーフv3でAI Coachingに分かれていた機能を内包
+  - `S/03 SAC`(Smart Athlete Class / 若年層育成)
 - カード構造: `番号(S/0n) → カテゴリ → サービス名 → 一行コピー → 説明 → 対象タグ → CTA`。
 - 現行のリスト型(行ホバーで赤が走る)を白背景用に反転調整して継続。CTAリンク先は当面 `#contact`(各サービスの個別ページは将来)。
 - 注意: RIATISを単なる動画学習サービスに、REGAINを単なるAI研修に見せない(カテゴリ表記とコピーで担保)。
+- 削除した旧カード:`AI Coaching`(REGAINに吸収)/ `Matching`(コアコンピタンス外)/ `Media / SNS`(コアコンピタンス外)。将来の復活はユーザー再確認後。
 
 ### 4.6 Business Structure(ブリーフ §9)— 新設
 
@@ -195,8 +200,9 @@ Contact(#contact)※右上CTAボタン
 
 ### 4.11 Footer(ブリーフ §14)
 
-- 最上部に `TURN KNOWLEDGE INTO MOMENTUM.`、最下部に小さく `DIRECTION 01 - PULSE DRIVEN`(現行表記を継承)。
-- 3カラムのリンク群: サイトマップ(About〜Contact)/ Legal(Privacy Policy / Terms / 特商法 ※ページ完成まではリンク無効化ではなく**掲載自体を保留**)/ Services(6サービス)。
+- 最上部に `TURN KNOWLEDGE INTO MOMENTUM.`、その下に大型 `RIATIS.` ロゴ、最下部に小さく `DIRECTION 01 - PULSE DRIVEN`(現行表記を継承)。
+- リンク群は **日本語1ラインの簡易メタナビ**(`会社概要｜サービス｜お問い合わせ｜プライバシーポリシー｜利用規約｜特定商取引法に基づく表記`)に集約(2026-06-13改訂)。区切りは `li + li::before` の縦線で表現。
+- リンク先: 会社概要(`#company`)/ サービス(`#services`)/ お問い合わせ(`#contact`)/ 特商法(`tokushoho/`)。プライバシーポリシー・利用規約は **テキスト表示(非リンク・`aria-disabled="true"`)** とし、正式原稿の確認とページ作成完了後にリンク化する(リンク切れによるリーガルリスクを避けるため)。
 - コピーライト: `© 2026 RIATIS Sports Inc. All rights reserved.`
 
 ---
@@ -249,7 +255,10 @@ Contact(#contact)※右上CTAボタン
 ```css
 :root {
   /* v3 カラーパレット(ブリーフ §15.3) */
-  --color-red: #D7003A;        /* 現 #d4111c から変更 */
+  --color-red: #D71200;        /* 現 #d4111c から変更。2026-06-12 改訂:
+                                  ブリーフ §15.3 当初値 #D7003A はマゼンタ寄りで
+                                  ブランド意図と乖離するため、オープニング演出
+                                  (§7.1.1)で使用中の純粋な赤 #D71200 に統一。 */
   --color-black: #0D0D0D;      /* 現 #0a0a0a から変更 */
   --color-white: #FFFFFF;
   --color-off-white: #F7F7F4;  /* 白背景セクションのベース */
@@ -280,10 +289,130 @@ Contact(#contact)※右上CTAボタン
 
 ### 7.1 モーション(ブリーフ §16)
 
-採用: Hero英字フェードイン(既存)/ 赤Pulseラインのスクロール連動 / Serviceカードホバーで赤線伸長(既存)/ RIATIS Way番号のスクロール浮上(`initReveal()` 共用)/ BPM数字の静かな変化(既存)。
+採用: **オープニング演出(後述)** → Hero英字フェードイン(既存)/ 赤Pulseラインのスクロール連動 / Serviceカードホバーで赤線伸長(既存)/ RIATIS Way番号のスクロール浮上(`initReveal()` 共用)/ BPM数字の静かな変化(既存)。
 不採用: 重い動画背景・派手なグリッチ・読みにくいパララックス・スマホで重い3D。
 
 `prefers-reduced-motion: reduce` では全アニメーション無効(既存の包括ルールを継続)+ Scroll Theaterを静的リストにフォールバック。
+
+#### 7.1.1 オープニング演出「マスクライズ」(Phase 1.5 / 2026-06-12 追加要件)
+
+ページロード時にHeroより前に独立したオープニングオーバーレイを表示する。「線が伸びる＝成長・躍動」をキーモチーフに、黒からブランドレッドへ転換する5段階シーケンスで構成する。
+
+**コンセプト**
+
+黒背景に「RIATIS」の各文字が見えない切り欠き(マスク)から下から立ち上がり、ブランドレッドの細線が引かれたあと、その線が画面全体へ拡張して赤背景+タグライン表示へ転換する。
+
+**画面構成**
+
+- フルスクリーンオーバーレイ(`position: fixed; inset: 0; z-index: 9999`)を1枚配置。
+- 内部は縦中央揃え(flex column / gap 16px)で上から順に:
+  1. メインロゴ「RIATIS」
+     - フォント: 太いサンセリフ(font-weight: 700)、letter-spacing: 0.04em
+     - サイズ: `clamp(40px, 9vw, 96px)` / white-space: nowrap
+     - 文字色(Phase 1〜3): `#C8C8C8`
+  2. サブテキスト「SPORTS INC.」
+     - サイズ: `clamp(13px, 2.4vw, 18px)` / letter-spacing: 0.42em
+     - 文字色(Phase 1〜3): `#8A8A8A`
+  3. アクセントライン(width: 140px / height: 2px / background: `#D71200`)
+  4. タグライン「知識を社会が躍動する力へ。」
+     - サイズ: `clamp(14px, 2.4vw, 18px)` / letter-spacing: 0.08em
+     - 文字色: `#FFFFFF`(Phase 5でのみ可視)
+
+**アニメーションタイムライン**
+
+| Phase | 区間 | 内容 |
+| --- | --- | --- |
+| 1 文字立ち上がり | 0〜約1100ms | 黒背景。「RIATIS」各文字をマスク構造(`overflow: hidden` の親 + 子 `<span>`)で包み、`translateY(110%)` → `translateY(0)` で立ち上げる。duration 620ms / easing `cubic-bezier(0.16, 1, 0.3, 1)` / R→I→A→T→I→Sの順に65msずつstagger。マスク外では文字が完全に不可視であること(opacityフェードではなく切り欠きから現れる表現) |
+| 2 サブテキスト+ライン | 約840〜1500ms | 最後の文字立ち上がりに重ねて開始。「SPORTS INC.」は opacity 0→1(duration 450ms / ease-out)。その120ms後にアクセントラインを `scaleX(0)` → `scaleX(1)`(duration 520ms / easing `cubic-bezier(0.77, 0, 0.18, 1)` / transform-origin: center)で中央から左右に伸長 |
+| 3 ホールド | 約1500〜2400ms | 全要素表示のまま約900ms静止。タグラインはまだ非表示 |
+| 4 赤拡張による転換 | 約2400〜3000ms | `#D71200` のフルスクリーンレイヤを文字より背面・黒背景より前面に配置し、`scaleY(0.006)` → `scaleY(1)`(transform-origin: `50% 62%` / duration 560ms / easing `cubic-bezier(0.77, 0, 0.18, 1)`)で拡張。拡張開始と同時にアクセントラインは opacity 0(線そのものが画面に拡張したように見せる)。拡張開始から300ms後(赤が文字を覆ったタイミング)に、transitionなしで「RIATIS」を `#FFFFFF`、「SPORTS INC.」を `rgba(255, 255, 255, 0.85)` へ瞬間切替 |
+| 5 タグライン | 約3000〜3550ms | タグラインを opacity 0 / `translateY(16px)` → opacity 1 / `translateY(0)`(duration 550ms / easing `cubic-bezier(0.16, 1, 0.3, 1)`)で表示 |
+| 5b 立体押し出しシャドウ | 約3200〜3540ms | 「RIATIS」(`.opening__logo`)に押し出しシャドウを伸長(下記「立体押し出しシャドウ」節参照) |
+| 6 ホールド+終了 | 3540ms〜 + 800ms ホールド + 600ms フェード | シャドウ定着から約800ms静止後、オーバーレイ全体を opacity 0(duration 600ms)でフェードアウトし `display: none` で本体コンテンツを露出(このオーバーレイをヒーローとして残す構成にする場合はフェードアウトを省略可) |
+
+**技術要件**
+
+- 純粋なCSSアニメーション(`@keyframes` + `animation-delay`)または Web Animations API で実装。外部ライブラリは使用しない。
+- 文字分割はJSで行ってよいが、JS無効時にも「RIATIS」がテキストとして読める構造にする。アクセシビリティはコンテナに `aria-label` を付与し、分割した個別spanは `aria-hidden="true"` とする。
+- `prefers-reduced-motion: reduce` では全アニメーションをスキップし、最終状態(赤背景+白文字+タグライン)を即時表示して1秒後にフェードアウト。
+- オーバーレイ表示中は `body` のスクロールをロック(`overflow: hidden`)し、終了時に解除する。
+- 1セッション1回のみ再生する `sessionStorage` 制御をオプションとして実装しやすい構造にしておく(デフォルトは毎回再生)。
+- 全体所要時間は約4.5〜5秒。タイムラインの数値(各Phaseの開始時刻 / duration / easing / 色値)は定数としてまとめて定義し、後から調整しやすくする。
+- 完了時に `body` から `opening-active` クラスを外し、Heroの `animation-delay` 連携で英字フェードインへ接続する。
+
+**修正指示(2026-06-12 追加・実装中フィードバック反映)**
+
+- 赤レイヤーの初期不可視化: Phase 4 で使う `#D71200` フルスクリーンレイヤは、転換開始まで画面に一切見えてはならない。初期状態を `transform: scaleY(0)` + `visibility: hidden` とし、Phase 4 のキーフレーム 0% で `visibility: visible` に切り替えてから `scaleY(1)` へ拡張する(あるいはJSで Phase 4 開始時に動的生成・appendでもよい)。「SPORTS INC.」直下のアクセントライン(width 140px)は仕様どおり残す。
+- フォント差し替え: 縦長コンデンス系を廃し、欧文は **Inter**(weight 700/800)、和文タグラインは **Noto Sans JP**(weight 400) を使用する。HTMLの `<head>` で `https://fonts.googleapis.com/css2?family=Inter:wght@700;800&family=Noto+Sans+JP:wght@400;700&display=swap` を読み込む(既存リンクへの統合可)。適用は以下:
+  - 「RIATIS」: `font-family: 'Inter', sans-serif; font-weight: 800; letter-spacing: 0.04em;`
+  - 「SPORTS INC.」: `font-family: 'Inter', sans-serif; font-weight: 700; letter-spacing: 0.42em;`
+  - 「知識を社会が躍動する力へ。」: `font-family: 'Noto Sans JP', sans-serif; font-weight: 400; letter-spacing: 0.08em;`
+- フォント読み込み完了待機: `document.fonts.ready` が解決するまでアニメーションを開始しない。実装は `.opening__*` の `animation-play-state` を初期 `paused` にし、`.opening--ready` クラスが付いたとき `running` に切り替える方式とする(待機中は最終状態を見せない・チラつかない・幅ズレも起きない)。
+
+**フォント変更: GenSeki Gothic H 採用(2026-06-12)**
+
+「RIATIS」と「SPORTS INC.」の表示フォントを Inter から **源石ゴシック H (GenSeki Gothic H)** へ差し替える。和文タグラインは Noto Sans JP のまま継続。
+
+- **採用フォント**: GenSeki Gothic v2.100 / weight `H` (Heavy)
+- **配布元**: [ButTaiwan/genseki-font](https://github.com/ButTaiwan/genseki-font) (Ver 2.100, 2024-08-22)
+- **ライセンス**: SIL Open Font License 1.1（同梱 OFL に明示された Reserved Font Name は Adobe の `Source` のみ。`GenSekiGothic` 自体は RFN 宣言なし）
+- **検証済みメタデータ**(元 `GenSekiGothic2JP-H.otf`):
+  - name[1] family: `GenSekiGothic2 JP H`
+  - name[6] PostScript: `GenSekiGothic2JP-H`
+  - name[16] typographic family: `GenSekiGothic2 JP`
+  - name[17] typographic subfamily: `H`
+  - OS/2.usWeightClass: `900` (Heavy 確定)
+  - fsType: `0` (installable embedding 可)
+  - 全必要文字（`R I A T S P O N C . ␠`）を cmap に含む
+- **配信方式**: セルフホスト WOFF2（CDN/外部参照なし）
+- **サブセット**: Hero見出し専用に必要11字のみ抽出（`R I A T S P O N C . ␠`）。本文用にこのフォントを使う予定が出た時点で別サブセットを作る方針。
+- **CSS internal alias**: `"RIATIS Display"`（フォント内部の RFN 系統名と切り離して、派生派配布物と分かりやすくする運用）
+- **ファイル配置**: `assets/fonts/genseki/RIATIS-Display-H.subset.woff2` / 同階層に `OFL.txt` と `ATTRIBUTION.md`
+- **preload**: 上記 WOFF2 を `<link rel="preload" as="font" type="font/woff2" crossorigin>` で先読み（preload は本ファイル1点のみに限定）
+- **font-display**: `block`（FOITで源石ゴシックの確定待ち。マスクライズ自体が `document.fonts.ready` 待機をしているので FOIT による遅延は実害なし）
+
+**サイズ・読み込みレポート**
+
+| 項目 | サイズ | 備考 |
+| --- | --- | --- |
+| 元 OTF (`GenSekiGothic2JP-H.otf`) | 14,659,888 B (約14.0 MiB) | 全グリフ27,077字 |
+| サブセット WOFF2 (本サイト配信) | **1,772 B (約1.73 KiB)** | 必要11字のみ |
+| 削減率 | **99.988%** | OTF比 |
+| 既存 Inter (Google Fonts) | 約 5〜10 KiB 程度のWOFF2/サブセット | 引き続きフォールバック先として利用 |
+| 既存 Noto Sans JP (Google Fonts) | タグライン用に既存読み込みを継続 | 変更なし |
+
+差し引きで本サイトへの追加転送量は約 +1.7 KiB（gzip後変動なし。WOFF2 は brotli 内包）。preload 1本のみ追加、ネットワークラウンドトリップは1往復増。
+
+サブセットは `pyftsubset` (fontTools 4.63.0) を以下で実行:
+
+```bash
+pyftsubset GenSekiGothic2JP-H.otf \
+  --text="RIATIS SPORTS INC." \
+  --flavor=woff2 --with-zopfli \
+  --no-hinting --desubroutinize \
+  --layout-features='kern' \
+  --name-IDs='1,2,3,4,6,13,14,16,17' \
+  --drop-tables+=DSIG,BASE,JSTF,VORG \
+  --output-file=RIATIS-Display-H.subset.woff2
+```
+
+将来文字を追加する場合は `--text` を更新してこのコマンドを再実行する。
+
+**立体押し出しシャドウ(Extrude Shadow / 2026-06-12 追加)**
+
+転換完了後、白い「RIATIS」に右斜め上方向のレトロな立体押し出しシャドウを伸ばす。これがオープニングの最終形となる。
+
+- **発動**: Phase 4 の色切替(2700ms)から **500ms 後** → `--t-shadow-start: 3200ms`
+- **方向**: 右斜め上(`--shadow-dx: 1`, `--shadow-dy: -1`)
+- **最終深さ**: **7px**(`--shadow-depth: 7`)
+- **色**: `#7F0B00`(背景 `#D71200` に馴染む不透明な暗赤、`--shadow-color`)
+- **アニメーション**: 深さ 0 → 7px、duration **340ms**(`--t-shadow-dur`)、easing **ease-out cubic**(`1 - (1-t)^3`)
+- **対象**: `.opening__logo` のみ(SPORTS INC.・タグラインには付与しない)
+- **構造**: 連続した塗り潰しに見せるため、**0.5px 刻みの text-shadow 多段**を重ねる(深さ7px時 = 14層+末尾)。例: `0.5px -0.5px 0 #7F0B00, 1px -1px 0 #7F0B00, ..., 7px -7px 0 #7F0B00`
+- **補間**: `text-shadow` は段数変動の CSS transition で補間できないため、`requestAnimationFrame` で毎フレーム深さを計算し文字列を再生成する(`script.js` の `animateExtrudeShadow()`)
+- **マスク開放**: `.opening__mask` の `overflow: hidden` は文字立ち上げ用。シャドウが箱外に伸びるため `--t-mask-open: 1100ms` 経過後に `overflow: visible` へ step-end で切替(立ち上がりは既に終わっているので視覚影響なし)
+- **タイムライン整合**: シャドウ定着(3540ms)から **800ms ホールド** → フェード開始 `--t-overlay-fade-start: 4340ms`(従来 4550ms から短縮)。総尺は約 **4.94 秒**で当初目標(4.5〜5秒)内
+- **reduced-motion**: アニメーションせず最初から深さ7pxの最終影を `.opening--reduced` 状態で適用する。マスクも即 `overflow: visible`
 
 ### 7.2 アクセシビリティ
 
@@ -304,16 +433,18 @@ Contact(#contact)※右上CTAボタン
 
 ## 8. 要確認事項(実装前にユーザー確認が必要)
 
-| # | 項目 | 現状 | 必要なアクション |
+2026-06-13 に「特定商取引法に基づく表記 v3」を受領し、#1 / #2 / #4(特商法) / #8 の各項目を解消した。2026-06-13 後の追加対応で #7 OGP画像も解消(残り: #3 / #5 / #6 と Privacy・Terms)。
+
+| # | 項目 | 状態 | 反映内容 / 残課題 |
 | --- | --- | --- | --- |
-| 1 | 所在地・電話番号 | 未取得 | 正式情報の提供を受けてから Company Profile / JSON-LD に反映 |
-| 2 | 問い合わせメールアドレス | 現行コードに `hello@riatis-sports.jp` がハードコード | 実在・正式なアドレスか確認(未確認のまま新サイトへ引き継がない) |
-| 3 | フォーム送信バックエンド | なし | Formspree等の外部サービス採用可否、または当面mailto運用かを決定 |
-| 4 | Privacy / Terms / 特商法 | ページなし | 正式原稿の提供後にページ作成。それまでFooterに掲載しない |
-| 5 | Pulse Journal 初期記事 | なし | 公開時に掲載する実在エントリ(最低1〜3件)の原稿 |
-| 6 | 資本金の公開可否 | ブリーフには「150万円」 | コーポレートサイトに掲載するか最終確認 |
-| 7 | OGP画像 | なし | 制作(実装フェーズ内で生成可、トーンは§7.3) |
-| 8 | 公開ドメイン | 未確認 | OGP `og:url` / JSON-LD `url` に必要 |
+| 1 | 所在地・電話番号 | ✅ 解消 | 〒253-0053 神奈川県茅ヶ崎市東海岸北5丁目14番15号 / 080-4406-0037(平日10:00〜17:00)を Company Profile と特商法ページに反映。JSON-LD への反映は Phase 6 で実施 |
+| 2 | 問い合わせメールアドレス | ✅ 解消 | `official.riatis.sports@gmail.com` を正式アドレスとして採用。旧 `hello@riatis-sports.jp` ハードコードは Phase 0 リファクタリングで既に除去済 |
+| 3 | フォーム送信バックエンド | 🔵 継続 | 当面は Contact フォーム送信ボタンを `disabled` のまま「準備中」。Formspree 等の採否は別途決定 |
+| 4 | Privacy / Terms / 特商法 | 🟡 特商法のみ解消 | 特商法ページ `tokushoho/index.html` を作成し Footer Legal列を解禁。Privacy / Terms は正式原稿の確認が取れるまで Footer に掲載しない |
+| 5 | Pulse Journal 初期記事 | 🔵 継続 | 「コーポレートサイト公開」記事を仮で1件掲載中。実在エントリ最低3件揃った時点で正式公開 |
+| 6 | 資本金の公開可否 | 🔵 継続 | コーポレートサイト掲載可否を最終確認。掲載可となった時点で Company Profile に追加 |
+| 7 | OGP画像 | ✅ 解消 | `assets/ogp.png`(1200×630)を §7.3 のトーンで制作し、`index.html` と `tokushoho/index.html` の `og:image` / `twitter:image` を絶対URLで参照。ソースは `assets/ogp.source.html` に保管(レイアウト変更時は headless Chrome で再書き出し) |
+| 8 | 公開ドメイン | ✅ 解消 | `https://www.riatis-sports.co.jp/` を正式ドメインとして採用。OGP `og:url` / JSON-LD `url` は Phase 6 で反映 |
 
 ---
 
@@ -325,11 +456,22 @@ Contact(#contact)※右上CTAボタン
 | --- | --- | --- |
 | 0(完了) | 設計 + 既存コードのリファクタリング(本書 + REFACTORING.md) | 挙動・見た目が変わらないことを確認しpush |
 | 1 Structure | §3.2 の12セクションの骨組みをHTMLで構築(新規セクションは仮コピーでなくブリーフ確定コピーを投入)。ナビ更新 | 全セクションがアンカー遷移可能 |
+| **1.5 Opening** | §7.1.1 オープニング演出「マスクライズ」+ 立体押し出しシャドウの実装。文字マスク立ち上げ→ライン→赤拡張→タグライン→RIATIS押し出しシャドウの6フェーズ。スキップ条件(reduced-motion即時最終状態)とsessionStorage制御を含む(2026-06-12 追加) | reduced-motion 時は最終状態(影付き)を即表示して1秒後フェードアウト、通常時はPC・モバイル共に約4.9〜5秒で完了し本体コンテンツへ遷移 |
 | 2 Design | v3トークン適用(red/black差し替え)、`data-theme` による黒白交互テーマ、白背景バリアントのCSS | 黒白リズムが §3.2 どおり、赤の使用箇所が §6 の制限内 |
-| 3 Copy | Hero差し替え、Belief更新(Pioneer→Ownership)、Services 6カードのコピー反映 | ブリーフのコピーと完全一致 |
+| 3 Copy | Hero差し替え、Belief更新(Pioneer→Ownership)、Services 3カードのコピー反映 | ブリーフのコピー + 2026-06-12 改訂と完全一致 |
 | 4 Components | BusinessFlow / JournalList / PartnerCTA / CompanyTable / ContactForm の実装 | §5 の命名・構成と一致 |
-| 5 Responsive | スマホファースト検証(Hero英字の折返し、Serviceカード縦積み、CTAタップ領域) | 360px〜で崩れなし、reduced-motionフォールバック動作 |
+| 5 Responsive | スマホファースト検証(Hero英字の折返し、Serviceカード縦積み、CTAタップ領域)+ ヘッダーのテーマ追従(下記サブ課題) | 360px〜で崩れなし、reduced-motionフォールバック動作、PC幅で白背景セクション通過中もヘッダーが視認できる |
 | 6 SEO & Legal | title/OGP/JSON-LD、確認済みの正式情報反映、法務ページ作成とFooter導線 | §8 の確認事項がすべて解消されてから完了 |
+
+### Phase 5 サブ課題:ヘッダーのテーマ追従(2026-06-13 追加)
+
+- **現象**: PC幅(>900px)で白背景セクション(`#services` / `#structure` / `#journal` / `#company`)に入ると、ヘッダーのロゴ・ナビ文字が背景に溶けて事実上見えなくなる。モバイルは別経路で解消済み(`@media (max-width: 900px)` で `mix-blend-mode: normal` へ戻している)が、PC幅のみ取り残されている。
+- **原因**: `.site-nav` に `mix-blend-mode: difference`(styles.css:183)を適用しており、黒背景上では白く反転して見える一方、`#F7F7F4` のような明るい背景では差分が小さく視認性が落ちる。
+- **修正方針(次回着手)**:
+  1. `IntersectionObserver` で `section[data-theme]` を監視し、ビューポート上端付近のセクションテーマを `<body>` か `.site-header` に `data-on-light` 属性として反映する(既存の `initReveal()` パターンに合わせて `initHeaderTheme()` を追加)。
+  2. CSS側で `mix-blend-mode: difference` は使用せず、デフォルトを白文字、`.site-header[data-on-light]` 時に `color: var(--color-black)` と `.logo .dot { background: var(--color-red); }` 等を明示する。
+  3. オープニング演出中(`body.opening-active`)はヘッダー非表示のままなのでテーマ判定不要。reduced-motion でも IntersectionObserver は通常動作させる(視認性は演出に依存しない)。
+- **検証観点**: 黒→白→黒の切替時に200ms以内で色が追従、PC・タブレット幅で白背景セクション通過中もリンクがホバー判別可能、`prefers-reduced-motion: reduce` 時も同じ追従が効くこと。
 
 ### やってはいけないこと(ブリーフ §19 再掲・実装時チェックリスト)
 
