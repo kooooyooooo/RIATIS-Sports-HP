@@ -70,8 +70,9 @@ Footer(ロゴ + コピーライトのみ)
 
 ```
 /                  … トップ(全セクション)
+/tokushoho/        … 特定商取引法に基づく表記(2026-06-13 v3受領により実装済)
 /journal/          … Pulse Journal 一覧(将来追加。トップは最新3件のみ)
-/privacy/ /terms/ /tokushoho/ … 法務ページ(正式原稿確認後に追加)
+/privacy/ /terms/  … 法務ページ(正式原稿確認後に追加)
 ```
 
 IRやSustainability等は現時点では作らないが、ナビとフッターのリスト構造を増設可能な形で実装する。
@@ -200,7 +201,7 @@ Contact(#contact)※右上CTAボタン
 ### 4.11 Footer(ブリーフ §14)
 
 - 最上部に `TURN KNOWLEDGE INTO MOMENTUM.`、最下部に小さく `DIRECTION 01 - PULSE DRIVEN`(現行表記を継承)。
-- 3カラムのリンク群: サイトマップ(About〜Contact)/ Legal(Privacy Policy / Terms / 特商法 ※ページ完成まではリンク無効化ではなく**掲載自体を保留**)/ Services(6サービス)。
+- 3カラムのリンク群: サイトマップ(About〜Contact)/ Services(3サービス)/ Legal(特商法は2026-06-13に有効化済 / Privacy Policy / Terms は正式原稿確認まで**掲載自体を保留**)。
 - コピーライト: `© 2026 RIATIS Sports Inc. All rights reserved.`
 
 ---
@@ -431,16 +432,18 @@ pyftsubset GenSekiGothic2JP-H.otf \
 
 ## 8. 要確認事項(実装前にユーザー確認が必要)
 
-| # | 項目 | 現状 | 必要なアクション |
+2026-06-13 に「特定商取引法に基づく表記 v3」を受領し、#1 / #2 / #4(特商法) / #8 の各項目を解消した。
+
+| # | 項目 | 状態 | 反映内容 / 残課題 |
 | --- | --- | --- | --- |
-| 1 | 所在地・電話番号 | 未取得 | 正式情報の提供を受けてから Company Profile / JSON-LD に反映 |
-| 2 | 問い合わせメールアドレス | 現行コードに `hello@riatis-sports.jp` がハードコード | 実在・正式なアドレスか確認(未確認のまま新サイトへ引き継がない) |
-| 3 | フォーム送信バックエンド | なし | Formspree等の外部サービス採用可否、または当面mailto運用かを決定 |
-| 4 | Privacy / Terms / 特商法 | ページなし | 正式原稿の提供後にページ作成。それまでFooterに掲載しない |
-| 5 | Pulse Journal 初期記事 | なし | 公開時に掲載する実在エントリ(最低1〜3件)の原稿 |
-| 6 | 資本金の公開可否 | ブリーフには「150万円」 | コーポレートサイトに掲載するか最終確認 |
-| 7 | OGP画像 | なし | 制作(実装フェーズ内で生成可、トーンは§7.3) |
-| 8 | 公開ドメイン | 未確認 | OGP `og:url` / JSON-LD `url` に必要 |
+| 1 | 所在地・電話番号 | ✅ 解消 | 〒253-0053 神奈川県茅ヶ崎市東海岸北5丁目14番15号 / 080-4406-0037(平日10:00〜17:00)を Company Profile と特商法ページに反映。JSON-LD への反映は Phase 6 で実施 |
+| 2 | 問い合わせメールアドレス | ✅ 解消 | `official.riatis.sports@gmail.com` を正式アドレスとして採用。旧 `hello@riatis-sports.jp` ハードコードは Phase 0 リファクタリングで既に除去済 |
+| 3 | フォーム送信バックエンド | 🔵 継続 | 当面は Contact フォーム送信ボタンを `disabled` のまま「準備中」。Formspree 等の採否は別途決定 |
+| 4 | Privacy / Terms / 特商法 | 🟡 特商法のみ解消 | 特商法ページ `tokushoho/index.html` を作成し Footer Legal列を解禁。Privacy / Terms は正式原稿の確認が取れるまで Footer に掲載しない |
+| 5 | Pulse Journal 初期記事 | 🔵 継続 | 「コーポレートサイト公開」記事を仮で1件掲載中。実在エントリ最低3件揃った時点で正式公開 |
+| 6 | 資本金の公開可否 | 🔵 継続 | コーポレートサイト掲載可否を最終確認。掲載可となった時点で Company Profile に追加 |
+| 7 | OGP画像 | 🔵 継続 | 制作(実装フェーズ内で生成可、トーンは§7.3) |
+| 8 | 公開ドメイン | ✅ 解消 | `https://www.riatis-sports.co.jp/` を正式ドメインとして採用。OGP `og:url` / JSON-LD `url` は Phase 6 で反映 |
 
 ---
 
