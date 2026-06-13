@@ -138,7 +138,7 @@ function initHeaderTheme() {
   if (!header) return;
 
   const themed = Array.from(
-    document.querySelectorAll("section[data-theme], footer[data-theme]"),
+    document.querySelectorAll("section[data-theme], footer[data-theme], article[data-theme]"),
   );
   if (themed.length === 0) return;
 
