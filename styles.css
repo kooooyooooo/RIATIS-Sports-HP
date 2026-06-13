@@ -1603,6 +1603,13 @@ footer {
   .ft-big {
     overflow-wrap: anywhere;
   }
+
+  /* Contact 送信ボタンはスマホで全幅・中央寄せにし、タップ領域と視覚優位を確保 */
+  .contact-submit {
+    justify-self: stretch;
+    justify-content: center;
+    padding: 18px 24px;
+  }
 }
 
 @media (max-width: 640px) {
@@ -1653,6 +1660,17 @@ footer {
   .cta-final {
     padding: 120px 20px;
   }
+
+  /* footer-meta はスマホで横並びを諦めて縦積みへ。横並びでは折り返し時に
+     行頭の li::before(区切り線)が残って見栄えが崩れるため。 */
+  .footer-meta ul {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .footer-meta li + li::before {
+    display: none;
+  }
 }
 
 @media (max-width: 440px) {
@@ -1677,6 +1695,36 @@ footer {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+
+  /* DESIGN.md §4.2: scroll-theater を sticky 演出から番号付き縦積みへフォールバック。
+     JS 側(initScrollTheater)は early return で停止しているため、構造を CSS で
+     直接固定化する。 */
+  .scroll-theater .sticky {
+    position: static;
+    height: auto;
+    display: block;
+    overflow: visible;
+  }
+  .scroll-theater .act {
+    position: static;
+    inset: auto;
+    opacity: 1;
+    display: block;
+    padding: clamp(40px, 6vw, 72px) clamp(20px, 4vw, 40px);
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+  }
+  .scroll-theater .act:first-of-type {
+    border-top: none;
+  }
+  .scroll-theater .act h2 {
+    font-size: clamp(2rem, 6vw, 4rem);
+    padding: 0;
+  }
+  .scroll-theater .progress,
+  .scroll-theater .idx,
+  .scroll-theater .anchor {
+    display: none;
   }
 }
 
