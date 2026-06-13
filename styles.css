@@ -2440,35 +2440,70 @@ body.opening-active .hero-sub {
   text-transform: uppercase;
 }
 .footer-message .r { color: var(--red); }
-.footer-cols {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 32px;
-  margin-bottom: clamp(40px, 6vw, 72px);
-  padding-bottom: clamp(40px, 6vw, 72px);
-  border-bottom: 1px solid var(--line);
+
+.footer-meta {
+  margin: clamp(28px, 4vw, 48px) 0 clamp(28px, 4vw, 44px);
+  padding: clamp(20px, 3vw, 32px) 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
 }
-.footer-col__title {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  letter-spacing: 0.22em;
-  color: var(--muted);
-  margin-bottom: 18px;
-  text-transform: uppercase;
-}
-.footer-col ul {
+.footer-meta ul {
   list-style: none;
-  display: grid;
-  gap: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 6px 0;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  line-height: 1.7;
 }
-.footer-col a {
-  font-size: 14px;
-  color: var(--fg);
+.footer-meta li {
+  display: inline-flex;
+  align-items: center;
+}
+.footer-meta li + li::before {
+  content: "";
+  display: inline-block;
+  width: 1px;
+  height: 11px;
+  margin: 0 16px;
+  background: rgba(255, 255, 255, 0.25);
+}
+.footer-meta a {
+  color: rgba(255, 255, 255, 0.78);
+  padding: 4px 0;
   transition: color 0.2s var(--ease-soft);
+  position: relative;
 }
-.footer-col a:hover,
-.footer-col a:focus-visible {
+.footer-meta a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: var(--red);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s var(--ease-power);
+}
+.footer-meta a:hover,
+.footer-meta a:focus-visible {
+  color: var(--color-white);
+}
+.footer-meta a:hover::after,
+.footer-meta a:focus-visible::after {
+  transform: scaleX(1);
+}
+.footer-meta a[aria-current="page"] {
   color: var(--red);
+}
+.footer-meta__disabled {
+  color: rgba(255, 255, 255, 0.4);
+  cursor: not-allowed;
+  padding: 4px 0;
 }
 
 /* --- Legal pages (特商法 / Privacy / Terms) --- */

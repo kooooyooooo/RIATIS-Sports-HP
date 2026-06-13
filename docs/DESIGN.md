@@ -200,8 +200,9 @@ Contact(#contact)※右上CTAボタン
 
 ### 4.11 Footer(ブリーフ §14)
 
-- 最上部に `TURN KNOWLEDGE INTO MOMENTUM.`、最下部に小さく `DIRECTION 01 - PULSE DRIVEN`(現行表記を継承)。
-- 3カラムのリンク群: サイトマップ(About〜Contact)/ Services(3サービス)/ Legal(特商法は2026-06-13に有効化済 / Privacy Policy / Terms は正式原稿確認まで**掲載自体を保留**)。
+- 最上部に `TURN KNOWLEDGE INTO MOMENTUM.`、その下に大型 `RIATIS.` ロゴ、最下部に小さく `DIRECTION 01 - PULSE DRIVEN`(現行表記を継承)。
+- リンク群は **日本語1ラインの簡易メタナビ**(`会社概要｜サービス｜お問い合わせ｜プライバシーポリシー｜利用規約｜特定商取引法に基づく表記`)に集約(2026-06-13改訂)。区切りは `li + li::before` の縦線で表現。
+- リンク先: 会社概要(`#company`)/ サービス(`#services`)/ お問い合わせ(`#contact`)/ 特商法(`tokushoho/`)。プライバシーポリシー・利用規約は **テキスト表示(非リンク・`aria-disabled="true"`)** とし、正式原稿の確認とページ作成完了後にリンク化する(リンク切れによるリーガルリスクを避けるため)。
 - コピーライト: `© 2026 RIATIS Sports Inc. All rights reserved.`
 
 ---
