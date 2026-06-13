@@ -64,7 +64,6 @@
         "description": "スポーツ・ヘルスケア・教育領域の専門知を、学び・実装・AIの力で現場成果へ変える会社。",
         "foundingDate": "2025-05",
         "email": "official.riatis.sports@gmail.com",
-        "telephone": "+81-80-4406-0037",
         "address": {
           "@type": "PostalAddress",
           "streetAddress": "東海岸北5丁目14番15号",
@@ -76,7 +75,6 @@
         "contactPoint": [{
           "@type": "ContactPoint",
           "contactType": "customer support",
-          "telephone": "+81-80-4406-0037",
           "email": "official.riatis.sports@gmail.com",
           "areaServed": "JP",
           "availableLanguage": ["Japanese"]
@@ -106,21 +104,19 @@
     <header class="site-header">
       <nav class="site-nav" aria-label="Global navigation">
         <a href="#top" class="logo" aria-label="RIATIS Sports top">
-          <span class="dot" aria-hidden="true"></span>
-          RIATIS
+          <img src="assets/logo-mark.png" alt="RIATIS Sports" class="logo__img" width="160" height="160" decoding="async">
         </a>
         <button class="menu-btn" id="menuBtn" type="button" aria-label="メニューを開く" aria-expanded="false" aria-controls="globalNav">
           <span></span>
           <span></span>
         </button>
         <ul class="nav-links" id="globalNav">
-          <li><a href="#why">About</a></li>
           <li><a href="#way">RIATIS Way</a></li>
           <li><a href="#services">Services</a></li>
           <li><a href="#journal">Journal</a></li>
           <li><a href="#join">Careers</a></li>
           <li><a href="#company">Company</a></li>
-          <li class="nav-cta-item"><a href="#contact" class="nav-cta">Contact</a></li>
+          <li class="nav-cta-item"><a href="https://forms.gle/g3MTA5E4Eo7yXNcA6" class="nav-cta" target="_blank" rel="noopener">Contact</a></li>
         </ul>
       </nav>
     </header>
@@ -141,14 +137,16 @@
             <div class="hero-copy">
               <p class="hero-lead">知識を、社会を前に進む力へ。</p>
               <p class="hero-statement">
-                RIATIS Sportsは、スポーツ・ヘルスケア・教育領域の専門知を、学び・実装・AIの力で現場成果へ変える会社です。
+                RIATIS Sportsは、世界と日本に溢れている専門知識を「ワクワクする形」に変換し、<br />
+                人々が持つウェルネス / スポーツ界の「当たり前」を<br />
+                アップデートするために生まれた会社である。
               </p>
               <div class="hero-cta">
                 <a class="hero-btn hero-btn--primary" href="#services">
                   <span>サービスを見る</span>
                   <span aria-hidden="true">→</span>
                 </a>
-                <a class="hero-btn hero-btn--ghost" href="#contact">
+                <a class="hero-btn hero-btn--ghost" href="https://forms.gle/g3MTA5E4Eo7yXNcA6" target="_blank" rel="noopener">
                   <span>お問い合わせ</span>
                   <span aria-hidden="true">→</span>
                 </a>
@@ -159,19 +157,6 @@
       </section>
 
       <div class="ecg" aria-hidden="true">
-        <div class="words">
-          <span>LEARN</span>
-          <span>●</span>
-          <span>GROW</span>
-          <span>●</span>
-          <span>CHALLENGE</span>
-          <span>●</span>
-          <span>LEARN</span>
-          <span>●</span>
-          <span>GROW</span>
-          <span>●</span>
-          <span>CHALLENGE</span>
-        </div>
         <svg viewBox="0 0 2000 100" preserveAspectRatio="none" focusable="false">
           <path
             d="M0 50 L200 50 L220 50 L240 20 L260 80 L280 10 L300 90 L320 50 L500 50 L520 50 L540 40 L560 60 L580 50 L800 50 L820 50 L840 20 L860 80 L880 10 L900 90 L920 50 L1100 50 L1200 50 L1220 40 L1240 60 L1260 50 L1420 50 L1440 20 L1460 80 L1480 10 L1500 90 L1520 50 L1720 50 L1740 40 L1760 60 L1780 50 L2000 50"
@@ -182,61 +167,54 @@
         </svg>
       </div>
 
-      <section class="why" id="why" aria-labelledby="why-eyebrow" data-theme="dark">
-        <div class="why-intro">
-          <div class="eyebrow reveal" id="why-eyebrow">01 / Why We Exist</div>
-          <p class="why-statement reveal">
-            スポーツを愛し、スポーツに生きる、すべての人のために。アスリートとその周囲のすべてのステークホルダーに伴走し、日本のスポーツ界をさらに先へ、共に押し上げます。
-          </p>
-        </div>
-
+      <section class="why" id="why" aria-label="The Unfairness, The Pain, The Challenge" data-theme="dark">
         <div class="scroll-theater">
           <div class="progress" aria-hidden="true"><div class="bar" id="pbar"></div></div>
           <div class="idx" id="actIdx" aria-hidden="true">
             <span data-i="0" class="on">01 · 理不尽</span>
-            <span data-i="1">02 · 学び</span>
+            <span data-i="1">02 · 痛み</span>
             <span data-i="2">03 · 挑戦</span>
-            <span data-i="3">04 · 前進</span>
           </div>
 
           <div class="sticky">
             <div class="act on" data-i="0">
               <div class="act-copy">
                 <span class="sm">01 / THE UNFAIRNESS</span>
-                <h2 id="why-title">学ぶ<span class="r">時間</span>がない<br />挑む<span class="o">資源</span>がない</h2>
+                <h2>
+                  <span class="ln">学ぶことが<span class="r">「頭でっかち」</span>と笑われ、</span>
+                  <span class="ln">古い常識が正解の顔をしている。</span>
+                </h2>
               </div>
             </div>
             <div class="act" data-i="1">
               <div class="act-copy">
-                <span class="sm">02 / LEARN</span>
-                <h2>スポーツの<br class="mobile-br" />叡智を<br />もっと気軽に</h2>
+                <span class="sm">02 / THE PAIN</span>
+                <h2>
+                  <span class="ln">本気で良くなりたい人ほど、</span>
+                  <span class="ln">信じるべき<span class="r">知識</span>に出会えず、</span>
+                  <span class="ln">遠回りさせられている。</span>
+                </h2>
               </div>
             </div>
             <div class="act" data-i="2">
               <div class="act-copy">
                 <span class="sm">03 / CHALLENGE</span>
-                <h2>挑戦の<span class="o">機会</span>を<br />全員に等しく</h2>
-              </div>
-            </div>
-            <div class="act" data-i="3">
-              <div class="act-copy">
-                <span class="sm">04 / MOMENTUM</span>
-                <h2>スポーツで<br class="mobile-br" /><span class="r">日本</span>を<br />前へ押し上げる</h2>
+                <h2>
+                  <span class="ln">「学ぶ人が笑われる世界」を終わらせ、</span>
+                  <span class="ln">学ぶ人が<span class="r">未来</span>を前進させる時代を創る。</span>
+                </h2>
               </div>
             </div>
           </div>
           <div class="anchor" data-i="0" aria-hidden="true"></div>
           <div class="anchor" data-i="1" aria-hidden="true"></div>
           <div class="anchor" data-i="2" aria-hidden="true"></div>
-          <div class="anchor" data-i="3" aria-hidden="true"></div>
         </div>
       </section>
 
       <section class="way" id="way" aria-labelledby="way-title" data-theme="dark">
         <div class="section-head">
-          <div class="eyebrow reveal">02 / RIATIS Way</div>
           <h2 class="stitle reveal" id="way-title">RIATIS <em>Way</em></h2>
-          <p class="section-lead reveal">私たちの行動と判断の中心にあるもの。Mission / Vision / Value の3軸で表します。</p>
         </div>
 
         <div class="mvv">
@@ -342,87 +320,88 @@
 
       <section class="svc" id="services" aria-labelledby="services-title" data-theme="light">
         <div class="section-head">
-          <div class="eyebrow reveal">03 / Services</div>
           <h2 class="stitle reveal" id="services-title">Services</h2>
-          <p class="section-lead reveal">
-            学びから実践、出会い、発信まで。スポーツに関わる人の前進を支える領域を育てています。
-          </p>
         </div>
 
         <div class="svc-list">
           <article class="svc-item reveal">
             <div class="nm">
-              <span class="nm-category">Knowledge Platform</span>
+              <span class="nm-category">KNOWLEDGE INFRA</span>
               <span class="nm-headline">
-                <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" aria-hidden="true"><polygon points="6 4 20 12 6 20 6 4" stroke-linejoin="round" /></svg>
                 <span class="nm-text">RIATIS</span>
               </span>
             </div>
             <div class="ds">
-              <p class="svc-tagline">スポーツの知を、ひとつに。</p>
-              <p class="svc-desc">研究・現場・第一人者の専門知を映像と教材で集約。指導者・選手・保護者が同じ知識基盤で意思決定できる学びの場をつくります。</p>
-              <ul class="svc-tags" aria-label="対象">
-                <li>指導者</li>
-                <li>選手</li>
-                <li>保護者</li>
+              <p class="svc-tagline">小難しい専門知識を、「オモシロ！」に変える。</p>
+              <p class="svc-desc">研究者・指導者・専門家などの知見を、楽しんで情報収集できるように映像・記事・教材として集約。<br />すべての人が、自然と専門知識を学び、考え、判断できるインフラをつくります。</p>
+              <ul class="svc-tags" aria-label="タグ">
+                <li>ウェルネス</li>
+                <li>スポーツ</li>
+                <li>アスリート</li>
                 <li>学生</li>
-                <li>部活・クラブ</li>
+                <li>部活</li>
+                <li>リサーチ</li>
+                <li>教育</li>
               </ul>
             </div>
-            <a class="ar" href="#contact" aria-label="RIATIS について問い合わせる">→</a>
+            <div class="svc-stage svc-stage--portrait" aria-hidden="true">
+              <img class="svc-mockup svc-mockup--portrait" src="RIATIS_App_moc_t.png" alt="" loading="lazy" decoding="async" />
+            </div>
+            <a class="ar" href="https://forms.gle/g3MTA5E4Eo7yXNcA6" target="_blank" rel="noopener" aria-label="RIATIS について問い合わせる">→</a>
           </article>
 
           <article class="svc-item reveal">
             <div class="nm">
-              <span class="nm-category">AI Implementation</span>
+              <span class="nm-category">FIELD AI PARTNER</span>
               <span class="nm-headline">
-                <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="1" /><rect x="9" y="9" width="6" height="6" /><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4" /></svg>
                 <span class="nm-text">REGAIN</span>
               </span>
             </div>
             <div class="ds">
-              <p class="svc-tagline">AIを、現場の力に変える。</p>
-              <p class="svc-desc">動画分析・データ可視化・運営自動化など、現場の業務をAIで再設計し、伴走しながら定着まで支援。ITに不慣れな組織でも導入できる設計を徹底します。</p>
-              <ul class="svc-tags" aria-label="対象">
-                <li>チーム</li>
+              <p class="svc-tagline">AIで自分の価値を一緒にREBOOSTしよう。</p>
+              <p class="svc-desc">これまでExcelやPowerPointなどで行ってきたデータ分析、可視化、資料作成、業務自動化など。<br />現場のリアルを知っているアナタにAI Powerが備わったら、世界は変わります。<br />AIを使いこなせるアナタにコーチングの力で導きます。</p>
+              <ul class="svc-tags" aria-label="タグ">
+                <li>AI</li>
+                <li>コーチング</li>
+                <li>エンジニアリング</li>
                 <li>学校</li>
                 <li>法人</li>
                 <li>自治体</li>
-                <li>育成組織</li>
               </ul>
             </div>
-            <a class="ar" href="#contact" aria-label="REGAIN について問い合わせる">→</a>
+            <div class="svc-stage svc-stage--landscape" aria-hidden="true">
+              <img class="svc-mockup svc-mockup--landscape" src="REGAIN_moc_t.png" alt="" loading="lazy" decoding="async" />
+            </div>
+            <a class="ar" href="https://forms.gle/g3MTA5E4Eo7yXNcA6" target="_blank" rel="noopener" aria-label="REGAIN について問い合わせる">→</a>
           </article>
 
           <article class="svc-item reveal">
             <div class="nm">
-              <span class="nm-category">Youth Development</span>
+              <span class="nm-category">NEXT NEW ATHLETE</span>
               <span class="nm-headline">
-                <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" aria-hidden="true"><path d="M12 3L2 9l10 6 10-6-10-6z" stroke-linejoin="round" /><path d="M6 11v5c0 1.7 2.7 3 6 3s6-1.3 6-3v-5" stroke-linejoin="round" /></svg>
-                <span class="nm-text">SAC</span>
+                <span class="nm-text">Smart Athlete Class</span>
               </span>
             </div>
             <div class="ds">
-              <p class="svc-tagline">賢く強い、次世代を育てる。</p>
-              <p class="svc-desc">競技力・学習力・IT/AIリテラシーを一体で伸ばす若年層向けプログラム「Smart Athlete Class」。現場の課題を、自分の頭で解ける選手を育てます。</p>
-              <ul class="svc-tags" aria-label="対象">
-                <li>ジュニア</li>
-                <li>学生アスリート</li>
+              <p class="svc-tagline">データやAIを活用した考え、学び、強くなる次世代の選手を一緒に育てる。</p>
+              <p class="svc-desc">競技力だけでなく、主体的行動力・情報リテラシー・AI活用力まで育てる育成年代向け研修プログラム。<br />教えられるだけの選手ではなく、自らの頭で課題を見つけ、解決できる次世代アスリートを一緒に育てましょう。</p>
+              <ul class="svc-tags" aria-label="タグ">
+                <li>中学生</li>
+                <li>高校生</li>
+                <li>大学生</li>
+                <li>アスリート</li>
                 <li>保護者</li>
                 <li>部活</li>
-                <li>育成クラブ</li>
               </ul>
             </div>
-            <a class="ar" href="#contact" aria-label="SAC について問い合わせる">→</a>
+            <a class="ar" href="https://forms.gle/g3MTA5E4Eo7yXNcA6" target="_blank" rel="noopener" aria-label="Smart Athlete Class について問い合わせる">→</a>
           </article>
         </div>
       </section>
 
       <section class="structure" id="structure" aria-labelledby="structure-title" data-theme="light">
         <div class="section-head">
-          <div class="eyebrow reveal">04 / Business Structure</div>
           <h2 class="stitle reveal" id="structure-title">Business <em>Structure</em></h2>
-          <p class="section-lead reveal">知識を集め、届け、実装し、前進へ変える。</p>
         </div>
         <ol class="flow">
           <li class="flow-step reveal">
@@ -431,17 +410,16 @@
             <ul class="flow-step__tags" aria-label="源泉">
               <li>Experts</li>
               <li>Research</li>
-              <li>Practice</li>
+              <li>Field</li>
             </ul>
           </li>
           <li class="flow-arrow" aria-hidden="true"><span>Convert</span></li>
           <li class="flow-step reveal">
             <p class="flow-step__label">Convert</p>
-            <h3 class="flow-step__title">使える形へ変換</h3>
+            <h3 class="flow-step__title">ワクワクする形へ</h3>
             <ul class="flow-step__tags" aria-label="アウトプット">
               <li>Contents</li>
               <li>AI</li>
-              <li>Tools</li>
               <li>Programs</li>
             </ul>
           </li>
@@ -452,17 +430,17 @@
             <ul class="flow-step__tags" aria-label="届け先">
               <li>Athletes</li>
               <li>Coaches</li>
-              <li>Teams</li>
               <li>Schools</li>
+              <li>Public</li>
               <li>Businesses</li>
             </ul>
           </li>
           <li class="flow-arrow" aria-hidden="true"><span>Momentum</span></li>
           <li class="flow-step flow-step--last reveal">
             <p class="flow-step__label">Momentum</p>
-            <h3 class="flow-step__title">前進への変換</h3>
+            <h3 class="flow-step__title">躍動する力へ</h3>
             <ul class="flow-step__tags" aria-label="生まれる前進">
-              <li>Learning</li>
+              <li>Autonomy</li>
               <li>Growth</li>
               <li>Challenge</li>
               <li>Japan Forward</li>
@@ -473,9 +451,7 @@
 
       <section class="journal" id="journal" aria-labelledby="journal-title" data-theme="light">
         <div class="section-head">
-          <div class="eyebrow reveal">05 / Journal</div>
           <h2 class="stitle reveal" id="journal-title">Journal</h2>
-          <p class="section-lead reveal">RIATIS Sportsの現在地を、最新の記事で。</p>
         </div>
         <ol class="journal-list">
           <li class="journal-item reveal">
@@ -493,34 +469,21 @@
 
       <section class="join" id="join" aria-labelledby="join-title" data-theme="dark">
         <div class="section-head">
-          <div class="eyebrow reveal">06 / Careers</div>
           <h2 class="stitle reveal" id="join-title">Careers</h2>
-          <p class="section-lead reveal">共に学び、現場を動かす仲間へ。</p>
         </div>
-        <div class="join-copy reveal">
-          <p>RIATIS Sportsは、スポーツ・ヘルスケア・教育の現場に、知識とAIを届け続ける会社です。研究者・指導者・テクノロジスト・営業・学生まで、立場を問わず、現場を一歩前に進めたい人を歓迎します。役割は固定しません。あなたの専門と熱量が、日本のスポーツの推進力になります。</p>
-          <p>私たちは速く動き、未来をつくる組織です。完成形を待たず、リスクを取り、結果に届く人と組みます。</p>
-        </div>
-        <p class="join-big reveal">現場を、<br /><span class="r">前へ進める仲間へ。</span></p>
-        <ul class="join-tags reveal" aria-label="募集カテゴリ">
-          <li>講師・専門家パートナー</li>
-          <li>コンテンツ監修者</li>
-          <li>REGAIN開発・実装パートナー</li>
-          <li>AI・IT活用支援メンバー</li>
-          <li>営業・マーケ</li>
-          <li>学生インターン</li>
-          <li>協業企業</li>
-          <li>スポンサー・PR</li>
-        </ul>
-        <a class="join-btn" href="#contact">
+        <p class="join-big reveal">
+          肩書きより、素直でいいやつ。<br />
+          <span class="r">熱量と組織が好きな人。</span>
+        </p>
+        <a class="join-btn reveal" href="https://forms.gle/g3MTA5E4Eo7yXNcA6" target="_blank" rel="noopener">
           <span>エントリーする</span>
           <span aria-hidden="true">→</span>
         </a>
+        <p class="join-note reveal">専門人材・パートナー・協業企業まで、立場を問わず。</p>
       </section>
 
       <section class="company" id="company" aria-labelledby="company-title" data-theme="light">
         <div class="section-head">
-          <div class="eyebrow reveal">07 / Company Profile</div>
           <h2 class="stitle reveal" id="company-title">Company <em>Profile</em></h2>
         </div>
         <dl class="company-list reveal">
@@ -545,10 +508,6 @@
             <dd>〒253-0053 神奈川県茅ヶ崎市東海岸北5丁目14番15号</dd>
           </div>
           <div class="company-row">
-            <dt>電話番号</dt>
-            <dd><a href="tel:+81804406037">080-4406-0037</a><span class="company-note">（平日 10:00〜17:00）</span></dd>
-          </div>
-          <div class="company-row">
             <dt>メールアドレス</dt>
             <dd><a href="mailto:official.riatis.sports@gmail.com">official.riatis.sports@gmail.com</a></dd>
           </div>
@@ -558,63 +517,23 @@
           </div>
           <div class="company-row">
             <dt>事業内容</dt>
-            <dd>スポーツ・ヘルスケア・教育領域の知識基盤事業 / AI実装・伴走支援事業 / 若年層向け育成プログラム事業</dd>
+            <dd>当社は、ウェルネス・スポーツ・教育領域において、専門知識をわかりやすく届ける学習・情報を起点としたサービスを展開しています。また、AIを活用した業務改善の伴走支援や、若年層の学びと成長を支える育成プログラムも提供しています。</dd>
           </div>
           <div class="company-row">
-            <dt>主要サービス</dt>
-            <dd>RIATIS（Knowledge Platform）／ REGAIN（AI Implementation）／ SAC（Smart Athlete Class）</dd>
+            <dt>資本金</dt>
+            <dd>1,500,000円</dd>
           </div>
-          <!-- 資本金は §8 #6 で公開可否を未確認のため引き続き保留。確認後にこのコメントの下へ追加する。 -->
         </dl>
       </section>
 
       <section class="contact" id="contact" aria-labelledby="contact-title" data-theme="dark">
         <div class="section-head">
-          <div class="eyebrow reveal center-eyebrow">08 / Contact</div>
-          <h2 class="contact-big reveal" id="contact-title">日本のスポーツ界を、<br /><span class="r">共に次へ。</span></h2>
-          <p class="section-lead reveal">あなたの一歩を、RIATIS Sportsへ。</p>
+          <h2 class="contact-big reveal" id="contact-title">心がざわついたら<br />RIATIS Sports へ</h2>
         </div>
-        <form class="contact-form reveal" novalidate aria-describedby="contact-note">
-          <div class="contact-field">
-            <label for="contact-name">お名前 <span class="req" aria-hidden="true">*</span></label>
-            <input id="contact-name" name="name" type="text" autocomplete="name" required />
-          </div>
-          <div class="contact-field">
-            <label for="contact-org">会社名・所属</label>
-            <input id="contact-org" name="org" type="text" autocomplete="organization" />
-          </div>
-          <div class="contact-field">
-            <label for="contact-email">メールアドレス <span class="req" aria-hidden="true">*</span></label>
-            <input id="contact-email" name="email" type="email" autocomplete="email" required />
-          </div>
-          <div class="contact-field">
-            <label for="contact-type">問い合わせ種別 <span class="req" aria-hidden="true">*</span></label>
-            <select id="contact-type" name="type" required>
-              <option value="">選択してください</option>
-              <option>RIATIS（Knowledge Platform）の導入・契約について</option>
-              <option>REGAIN（AI Implementation）の導入・実装相談</option>
-              <option>SAC（Smart Athlete Class）のプログラム参加・連携</option>
-              <option>講師・専門家・コンテンツ監修としての参画</option>
-              <option>開発・実装パートナー(エンジニア / AI / IT支援)として参画</option>
-              <option>営業・マーケ・ビジネス開発メンバーとしての参画</option>
-              <option>学生インターン・若手メンバーとしての参画</option>
-              <option>協業・業務提携・共同プロジェクトの相談</option>
-              <option>スポンサーシップ・広告・PR</option>
-              <option>取材・メディア掲載・その他</option>
-            </select>
-          </div>
-          <div class="contact-field">
-            <label for="contact-body">問い合わせ内容 <span class="req" aria-hidden="true">*</span></label>
-            <textarea id="contact-body" name="body" rows="6" required></textarea>
-          </div>
-          <button class="contact-submit" type="button" disabled aria-disabled="true">
-            <span>送信する（準備中）</span>
-            <span aria-hidden="true">→</span>
-          </button>
-          <p class="contact-note" id="contact-note">
-            送信機能は現在準備中です。送信先設定の完了後に有効化します。
-          </p>
-        </form>
+        <a class="contact-cta reveal" href="https://forms.gle/g3MTA5E4Eo7yXNcA6" target="_blank" rel="noopener">
+          <span>Contact Us</span>
+          <span aria-hidden="true">→</span>
+        </a>
       </section>
     </main>
 
@@ -625,12 +544,11 @@
         <ul>
           <li><a href="#company">会社概要</a></li>
           <li><a href="#services">サービス</a></li>
-          <li><a href="#contact">お問い合わせ</a></li>
-          <li><span class="footer-meta__disabled" aria-disabled="true" title="準備中">プライバシーポリシー</span></li>
-          <li><span class="footer-meta__disabled" aria-disabled="true" title="準備中">利用規約</span></li>
+          <li><a href="https://forms.gle/g3MTA5E4Eo7yXNcA6" target="_blank" rel="noopener">お問い合わせ</a></li>
+          <li><a href="privacy/">プライバシーポリシー</a></li>
+          <li><a href="terms/">利用規約</a></li>
           <li><a href="tokushoho/">特定商取引法に基づく表記</a></li>
         </ul>
-        <!-- プライバシーポリシー / 利用規約 は正式原稿の確認後にリンク化（DESIGN.md §8 #4）。 -->
       </nav>
       <div class="ft-bot">
         <div>© 2026 RIATIS Sports Inc. All rights reserved.</div>

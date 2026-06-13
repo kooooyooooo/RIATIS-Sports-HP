@@ -52,8 +52,8 @@ function initReveal() {
 }
 
 /* StatementBlock: scroll-theater のsticky演出と進捗バー
-   reduced-motion時は §4.2 のフォールバック(縦積みリスト)に CSS 側で
-   切り替わるため、scroll/resize リスナーや transform 更新は不要 */
+   reduced-motion時は CSS のフォールバック(縦積みリスト)に切り替わるため、
+   scroll/resize リスナーや transform 更新は不要 */
 function initScrollTheater() {
   if (reducedMotionQuery.matches) return;
 
